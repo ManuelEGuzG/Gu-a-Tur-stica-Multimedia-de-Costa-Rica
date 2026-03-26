@@ -14,35 +14,35 @@ const REGIONES = {
   'guanacaste': {
     etiqueta:    'Pacífico Norte',
     nombre:      'Guanacaste',
-    color:       '#b9f6d3',
+    color:       '#445a14',   /* verde más oscuro */
     descripcion: 'Tierra de playas doradas, volcanes activos y bosque seco tropical. Hogar del Parque Nacional Rincón de la Vieja, Tamarindo y las tortugas baulas del Pacífico.',
     provincias:  ['Guanacaste'],
   },
   'puntarenas': {
     etiqueta:    'Pacífico Central',
     nombre:      'Puntarenas',
-    color:       '#04842a',
+    color:       '#3b5110',   /* verde bosque */
     descripcion: 'Desde Manuel Antonio hasta la Península de Osa, esta región concentra la mayor biodiversidad del planeta. Ballenas jorobadas, delfines y selva húmeda virgen.',
     provincias:  ['Puntarenas'],
   },
   'limon': {
     etiqueta:    'Huetar Atlántica',
     nombre:      'Limón',
-    color:       '#22c857',
+    color:       '#b7cd7f',   /* verde medio claro */
     descripcion: 'El Caribe costarricense: canales fluviales, arrecifes de coral en Cahuita, cultura afrocaribeña vibrante y el sabor único del pati y el rice and beans.',
     provincias:  ['Limón'],
   },
   'central-sur': {
     etiqueta:    'Central Sur',
     nombre:      'San José & Cartago',
-    color:       '#84fda9',
+    color:       '#96ac60',   /* verde medio */
     descripcion: 'El corazón cultural e histórico del país. Valle de Orosi, volcán Irazú, la Basílica de los Ángeles y la vida urbana más vibrante de Costa Rica.',
     provincias:  ['San José', 'Cartago'],
   },
   'huetar-norte': {
     etiqueta:    'Huetar Norte',
     nombre:      'Heredia & Alajuela',
-    color:       '#09e23f',
+    color:       '#778c43',   /* verde medio */
     descripcion: 'Volcán Poás, La Fortuna con el Arenal, la Laguna de Arenal y los mejores cafetales del país. Aventura geotérmica y naturaleza exuberante en cada rincón.',
     provincias:  ['Heredia', 'Alajuela'],
   },
