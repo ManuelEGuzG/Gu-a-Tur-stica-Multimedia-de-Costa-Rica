@@ -1,0 +1,430 @@
+/* ═══════════════════════════════════════════════════════════════
+   portada.css — Estilos de la portada y navbar
+   Guía Turística Multimedia de Costa Rica
+   IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Variables ────────────────────────────────────────────────── */
+:root {
+  --oro:          #c9a84c;
+  --oro-claro:    #e8c97a;
+  --verde-logo:   #2d5a3d;
+  --verde-oscuro: #0a1910;
+  --blanco:       #ffffff;
+  --blanco-80:    rgba(255, 255, 255, 0.80);
+  --blanco-50:    rgba(255, 255, 255, 0.50);
+  --blanco-20:    rgba(255, 255, 255, 0.20);
+
+  --serif:        'Cormorant Garamond', Georgia, serif;
+  --serif-italic: 'Cormorant Infant', Georgia, serif;
+  --sans:         'Montserrat', sans-serif;
+
+  --navbar-alto:  72px;
+  --ease-salida:  cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 100;
+  height: var(--navbar-alto);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  background: transparent;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Clase que se agrega con JS al hacer scroll */
+.navbar.con-fondo {
+  background: rgba(8, 20, 12, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ── Logo ─────────────────────────────────────────────────────── */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: default;
+}
+
+.navbar__logo-icono {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--verde-logo);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.navbar__logo-icono img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  /* Sin filter: se muestra logo-turismo.png original */
+}
+
+.navbar__logo-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar__logo-nombre {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--blanco);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.navbar__logo-subtitulo {
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--oro);
+  line-height: 1;
+}
+
+/* ── Acciones ─────────────────────────────────────────────────── */
+.navbar__acciones {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.navbar__btn-mapa {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--blanco-80);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.navbar__btn-mapa:hover {
+  color: var(--blanco);
+}
+
+.navbar__btn-mapa svg {
+  opacity: 0.65;
+  transition: opacity 0.25s ease;
+}
+
+.navbar__btn-mapa:hover svg {
+  opacity: 1;
+}
+
+/* ── Idioma ───────────────────────────────────────────────────── */
+.navbar__idioma {
+  display: flex;
+  border: 1px solid var(--blanco-20);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.navbar__idioma-btn {
+  background: none;
+  border: none;
+  padding: 0.32rem 0.6rem;
+  color: var(--blanco-50);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar__idioma-btn.activo {
+  background: var(--oro);
+  color: var(--verde-oscuro);
+}
+
+.navbar__idioma-btn:not(.activo):hover {
+  background: var(--blanco-20);
+  color: var(--blanco);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PORTADA
+══════════════════════════════════════════════════════════════ */
+.portada {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 580px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* ── Fondo con video ──────────────────────────────────────────── */
+.portada__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.portada__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portada__overlay {
+  position: absolute;
+  inset: 0;
+  /* Oscurece más abajo y hacia la izquierda, donde está el texto */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08)  0%,
+      rgba(0,0,0,0.14)  40%,
+      rgba(5,18,10,0.70) 72%,
+      rgba(5,18,10,0.82) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(5,18,10,0.52) 0%,
+      transparent       55%
+    );
+}
+
+/* ── Contenido (abajo-izquierda) ─────────────────────────────── */
+.portada__contenido {
+  position: relative;
+  z-index: 2;
+  padding: 0 3rem 4.5rem;
+  max-width: 560px;
+
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: entradaArriba 1.1s var(--ease-salida) 0.25s forwards;
+}
+
+.portada__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.portada__eyebrow-linea {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: var(--oro);
+  flex-shrink: 0;
+}
+
+.portada__eyebrow-texto {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--blanco-50);
+  text-transform: uppercase;
+}
+
+.portada__titulo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.4rem;
+  line-height: 1;
+}
+
+.portada__titulo-principal {
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+  font-weight: 600;
+  color: var(--blanco);
+  letter-spacing: -0.01em;
+  line-height: 1.0;
+}
+
+.portada__titulo-acento {
+  font-family: var(--serif-italic);
+  font-style: italic;
+  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+  font-weight: 400;
+  color: var(--oro-claro);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-top: -0.08em;
+}
+
+.portada__descripcion {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--blanco-80);
+  max-width: 390px;
+}
+
+/* ── Estadísticas (derecha-inferior) ─────────────────────────── */
+.portada__estadisticas {
+  position: absolute;
+  z-index: 2;
+  bottom: 5.5rem;
+  right: 3rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-end;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: entradaArriba 1s var(--ease-salida) 0.65s forwards;
+}
+
+.portada__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.portada__stat-numero {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--blanco);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.portada__stat-etiqueta {
+  font-family: var(--sans);
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--blanco-50);
+  text-transform: uppercase;
+}
+
+/* ── Botón Explorar (derecha-inferior) ───────────────────────── */
+.portada__explorar {
+  position: absolute;
+  z-index: 2;
+  bottom: 2.5rem;
+  right: 3rem;
+
+  opacity: 0;
+  animation: entradaArriba 1s var(--ease-salida) 0.95s forwards;
+}
+
+.portada__btn-explorar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--blanco-50);
+  font-family: var(--sans);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.portada__btn-explorar:hover {
+  color: var(--blanco);
+}
+
+.portada__btn-flecha {
+  display: inline-block;
+  animation: rebote 2.2s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECCIÓN DESTINOS
+══════════════════════════════════════════════════════════════ */
+.destinos {
+  min-height: 100vh;
+  background: #f5f0e8;
+  padding: 4rem 2rem;
+}
+
+.destinos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMACIONES
+══════════════════════════════════════════════════════════════ */
+@keyframes entradaArriba {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rebote {
+  0%, 100% { transform: translateY(0);   opacity: 0.5; }
+  50%       { transform: translateY(6px); opacity: 1;   }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+  .navbar__btn-mapa {
+    display: none;
+  }
+  .portada__contenido {
+    padding: 0 1.5rem 9rem;
+  }
+  .portada__estadisticas {
+    right: 1.5rem;
+    bottom: 5.8rem;
+    gap: 1.5rem;
+  }
+  .portada__explorar {
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portada__titulo-principal,
+  .portada__titulo-acento {
+    font-size: 2.8rem;
+  }
+  .portada__estadisticas {
+    gap: 1.2rem;
+  }
+  .portada__stat-numero {
+    font-size: 2rem;
+  }
+}
