@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/portada.css" />
   <link rel="stylesheet" href="css/mapa.css" />
   <link rel="stylesheet" href="css/carrusel.css" />
+  <link rel="stylesheet" href="css/datos.css" />
 </head>
 <body>
 
@@ -175,52 +176,63 @@
           <div class="cr-stats">
 
             <div class="cr-stat">
+              <!-- Ícono biodiversidad / animal -->
               <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M8 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                <path d="M14 9c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1z"/>
               </svg>
-              <span class="cr-stat__valor">51 100</span>
-              <span class="cr-stat__label">km² de territorio</span>
-            </div>
-
-            <div class="cr-stat">
-              <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span class="cr-stat__valor">1 326</span>
-              <span class="cr-stat__label">km de costas</span>
-            </div>
-
-            <div class="cr-stat">
-              <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-              <span class="cr-stat__valor">99 %</span>
-              <span class="cr-stat__label">energía renovable</span>
-            </div>
-
-            <div class="cr-stat">
-              <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-              </svg>
-              <span class="cr-stat__valor">5 %</span>
+              <span class="cr-stat__valor">6.5 %</span>
               <span class="cr-stat__label">biodiversidad mundial</span>
             </div>
 
             <div class="cr-stat">
+              <!-- Ícono libro / educación -->
               <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
               </svg>
-              <span class="cr-stat__valor">30 %</span>
-              <span class="cr-stat__label">territorio protegido</span>
+              <span class="cr-stat__valor">7.6 %</span>
+              <span class="cr-stat__label">PIB en educación</span>
             </div>
 
             <div class="cr-stat">
+              <!-- Ícono salud / cruz -->
               <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                <path d="M9 12h6m-3-3v6m-7 3h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
-              <span class="cr-stat__valor">5.2 M</span>
-              <span class="cr-stat__label">habitantes</span>
+              <span class="cr-stat__valor">9.9 %</span>
+              <span class="cr-stat__label">PIB en salud</span>
+            </div>
+
+            <div class="cr-stat">
+              <!-- Ícono paz / paloma -->
+              <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M3 12c0 4.97 4.03 9 9 9s9-4.03 9-9-4.03-9-9-9"/>
+                <path d="M3 12h4l3-3 2 4 2-2h3"/>
+              </svg>
+              <span class="cr-stat__valor">1948</span>
+              <span class="cr-stat__label">abolió el ejército</span>
+            </div>
+
+            <div class="cr-stat">
+              <!-- Ícono mapa / superficie -->
+              <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                <line x1="8" y1="2" x2="8" y2="18"/>
+                <line x1="16" y1="6" x2="16" y2="22"/>
+              </svg>
+              <span class="cr-stat__valor">51 100</span>
+              <span class="cr-stat__label">km² de superficie</span>
+            </div>
+
+            <div class="cr-stat">
+              <!-- Ícono alfabetización / lápiz -->
+              <svg class="cr-stat__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+              <span class="cr-stat__valor">97.4 %</span>
+              <span class="cr-stat__label">alfabetización</span>
             </div>
 
           </div>
@@ -313,6 +325,54 @@
 
   </section>
 
+  <!-- DATOS GENERALES -->
+  <section class="datos-seccion" id="datos-generales" aria-label="Datos generales de Costa Rica">
+
+    <div class="datos-seccion__encabezado">
+      <div class="datos-seccion__eyebrow">
+        <span class="datos-seccion__eyebrow-linea"></span>
+        <span class="datos-seccion__eyebrow-texto">COSTA RICA EN CIFRAS</span>
+        <span class="datos-seccion__eyebrow-linea"></span>
+      </div>
+    </div>
+
+    <div class="datos-seccion__grid">
+
+      <div class="datos-item" data-delay="0">
+        <div class="datos-item__icono-wrap">
+          <img src="assets/img/iconos/idioma.png" alt="Idioma" class="datos-item__img" />
+        </div>
+        <span class="datos-item__valor">Español</span>
+        <span class="datos-item__label">Idioma oficial</span>
+      </div>
+
+      <div class="datos-item" data-delay="1">
+        <div class="datos-item__icono-wrap">
+          <img src="assets/img/iconos/hora.png" alt="Zona horaria" class="datos-item__img" />
+        </div>
+        <span class="datos-item__valor">UTC-6 (CST)</span>
+        <span class="datos-item__label">Zona horaria</span>
+      </div>
+
+      <div class="datos-item" data-delay="2">
+        <div class="datos-item__icono-wrap">
+          <img src="assets/img/iconos/clima.png" alt="Clima" class="datos-item__img" />
+        </div>
+        <span class="datos-item__valor">Seca y lluviosa</span>
+        <span class="datos-item__label">2 estaciones climáticas</span>
+      </div>
+
+      <div class="datos-item" data-delay="3">
+        <div class="datos-item__icono-wrap">
+          <img src="assets/img/iconos/moneda.png" alt="Moneda" class="datos-item__img" />
+        </div>
+        <span class="datos-item__valor">Colón</span>
+        <span class="datos-item__label">Moneda oficial</span>
+      </div>
+
+    </div>
+  </section>
+
   <!-- DESTINOS -->
   <main id="destinos" class="destinos" aria-label="Listado de destinos">
     <div id="contenedor-destinos" class="destinos__grid"></div>
@@ -325,12 +385,31 @@
   <script src="js/mapa.js"></script>
   <script src="js/carrusel.js"></script>
   <script src="js/audio.js"></script>
+
+  <script>
+    /* Animación de entrada de .datos-item al hacer scroll */
+    const datosItems = document.querySelectorAll('.datos-item');
+    const observadorDatos = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    datosItems.forEach(item => observadorDatos.observe(item));
+  </script>
   <script type="module" src="components/app-header.js"></script>
   <script type="module" src="components/destino-card.js"></script>
   <script type="module" src="components/destino-detalle.js"></script>
   <script type="module" src="components/galeria-imagenes.js"></script>
   <script type="module" src="components/audio-guia.js"></script>
   <script type="module" src="components/video-destino.js"></script>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>
+      © 2026 <a href="index.html">Guía Turística Multimedia de Costa Rica</a>
+      — IF7102 Multimedios | UCR Sede Guanacaste
+    </p>
+  </footer>
 
 </body>
 </html>

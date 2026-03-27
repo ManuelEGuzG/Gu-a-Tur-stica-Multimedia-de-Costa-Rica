@@ -16,26 +16,16 @@ if (!audio || !btnAudio) {
 } else {
   let silenciado = false;
 
-  /* ══════════════════════════════════════════════════════════════
-     Intentar reproducir al primer click del usuario en la página
-     (los navegadores bloquean autoplay sin interacción previa)
-  ══════════════════════════════════════════════════════════════ */
   function intentarReproducir() {
-    audio.volume = 0.35;  /* volumen suave: 35% */
-    audio.play().catch(() => {
-      /* Si el navegador bloquea el autoplay, simplemente espera */
-    });
+    audio.volume = 0.35;
+    audio.play().catch(() => {});
     document.removeEventListener('click', intentarReproducir);
     document.removeEventListener('keydown', intentarReproducir);
   }
 
-  /* Arrancar en el primer gesto del usuario */
   document.addEventListener('click', intentarReproducir);
   document.addEventListener('keydown', intentarReproducir);
 
-  /* ══════════════════════════════════════════════════════════════
-     Botón silenciar / activar
-  ══════════════════════════════════════════════════════════════ */
   function actualizarBoton() {
     if (silenciado) {
       iconoOn.style.display  = 'none';
@@ -53,18 +43,12 @@ if (!audio || !btnAudio) {
   }
 
   btnAudio.addEventListener('click', (e) => {
-    e.stopPropagation(); /* evitar que dispare intentarReproducir */
+    e.stopPropagation();
     silenciado = !silenciado;
-
-    if (silenciado) {
-      audio.pause();
-    } else {
-      audio.play().catch(() => {});
-    }
-
+    if (silenciado) audio.pause();
+    else audio.play().catch(() => {});
     actualizarBoton();
   });
 
-  /* Estado inicial del botón */
   actualizarBoton();
 }
