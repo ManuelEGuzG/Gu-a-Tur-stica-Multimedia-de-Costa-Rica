@@ -26,6 +26,23 @@
       </div>
     </div>
     <div class="navbar__acciones">
+
+      <!-- Botón silenciar / activar música -->
+      <button class="navbar__btn-audio" id="btnAudio" aria-label="Silenciar música de fondo" title="Música de fondo">
+        <!-- Ícono sonido activado -->
+        <svg class="audio-icono audio-icono--on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        <!-- Ícono silenciado -->
+        <svg class="audio-icono audio-icono--off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display:none">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <line x1="23" y1="9" x2="17" y2="15"/>
+          <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+      </button>
+
       <button class="navbar__btn-mapa" id="btnMapa" aria-label="Explorar mapa interactivo">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
           <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
@@ -270,13 +287,13 @@
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-9.jpg"  alt="Costa Rica foto 9"  loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-10.jpg" alt="Costa Rica foto 10" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-11.jpg" alt="Costa Rica foto 11" loading="lazy" /></div>
-          <div class="carrusel__item"><img src="assets/img/carrucel/foto-12.jpeg" alt="Costa Rica foto 12" loading="lazy" /></div>
+          <div class="carrusel__item"><img src="assets/img/carrucel/foto-12.jpg" alt="Costa Rica foto 12" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-13.jpg" alt="Costa Rica foto 13" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-14.jpg" alt="Costa Rica foto 14" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-15.jpg" alt="Costa Rica foto 15" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-16.jpg" alt="Costa Rica foto 16" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-17.jpg" alt="Costa Rica foto 17" loading="lazy" /></div>
-          <div class="carrusel__item"><img src="assets/img/carrucel/foto-18.jpeg" alt="Costa Rica foto 18" loading="lazy" /></div>
+          <div class="carrusel__item"><img src="assets/img/carrucel/foto-18.jpg" alt="Costa Rica foto 18" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-19.jpg" alt="Costa Rica foto 19" loading="lazy" /></div>
           <div class="carrusel__item"><img src="assets/img/carrucel/foto-20.jpg" alt="Costa Rica foto 20" loading="lazy" /></div>
         </div>
@@ -301,9 +318,13 @@
     <div id="contenedor-destinos" class="destinos__grid"></div>
   </main>
 
+  <!-- Audio de fondo -->
+  <audio id="musicaFondo" src="assets/audio/musica-fondo.mp3" loop preload="auto"></audio>
+
   <script src="js/portada.js"></script>
   <script src="js/mapa.js"></script>
   <script src="js/carrusel.js"></script>
+  <script src="js/audio.js"></script>
   <script type="module" src="components/app-header.js"></script>
   <script type="module" src="components/destino-card.js"></script>
   <script type="module" src="components/destino-detalle.js"></script>

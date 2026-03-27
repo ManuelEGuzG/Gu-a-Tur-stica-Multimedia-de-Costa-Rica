@@ -135,6 +135,43 @@
   opacity: 1;
 }
 
+/* ── Botón audio ──────────────────────────────────────────────── */
+.navbar__btn-audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--blanco-80);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.navbar__btn-audio:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--blanco);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Cuando está silenciado: borde en tono rojo suave */
+.navbar__btn-audio.silenciado {
+  background: rgba(192, 57, 43, 0.15);
+  border-color: rgba(192, 57, 43, 0.35);
+  color: rgba(255, 120, 100, 0.85);
+}
+
+.navbar__btn-audio.silenciado:hover {
+  background: rgba(192, 57, 43, 0.25);
+}
+
+.navbar__btn-audio svg {
+  display: block;
+}
+
 /* ── Idioma ───────────────────────────────────────────────────── */
 .navbar__idioma {
   display: flex;
