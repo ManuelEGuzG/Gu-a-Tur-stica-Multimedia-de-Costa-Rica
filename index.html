@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -16,49 +16,7 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
-    <div class="navbar__logo">
-      <div class="navbar__logo-icono">
-        <img src="assets/img/logo-turismo.png" alt="Logo Guía Turística Costa Rica" width="34" height="34" />
-      </div>
-      <div class="navbar__logo-texto">
-        <span class="navbar__logo-nombre">Costa Rica</span>
-        <span class="navbar__logo-subtitulo">GUÍA TURÍSTICA</span>
-      </div>
-    </div>
-    <div class="navbar__acciones">
-
-      <!-- Botón silenciar / activar música -->
-      <button class="navbar__btn-audio" id="btnAudio" aria-label="Silenciar música de fondo" title="Música de fondo">
-        <!-- Ícono sonido activado -->
-        <svg class="audio-icono audio-icono--on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-        </svg>
-        <!-- Ícono silenciado -->
-        <svg class="audio-icono audio-icono--off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display:none">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-          <line x1="23" y1="9" x2="17" y2="15"/>
-          <line x1="17" y1="9" x2="23" y2="15"/>
-        </svg>
-      </button>
-
-      <button class="navbar__btn-mapa" id="btnMapa" aria-label="Explorar mapa interactivo">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
-          <line x1="8" y1="2" x2="8" y2="18"/>
-          <line x1="16" y1="6" x2="16" y2="22"/>
-        </svg>
-        EXPLORAR MAPA
-      </button>
-      <div class="navbar__idioma" role="group" aria-label="Seleccionar idioma">
-        <button class="navbar__idioma-btn activo" data-lang="es" aria-pressed="true">ES</button>
-        <button class="navbar__idioma-btn" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-    </div>
-  </nav>
+  <app-header id="appHeader"></app-header>
 
   <!-- PORTADA -->
   <section class="portada" id="portada" aria-label="Portada principal">
