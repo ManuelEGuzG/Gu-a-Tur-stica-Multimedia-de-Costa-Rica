@@ -1,67 +1,77 @@
 /* ═══════════════════════════════════════════════════════════════
-   destinos.css — Página de destinos turísticos
+   destinos.css — Sección destinos dentro del index
    Guía Turística Multimedia de Costa Rica
    IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
    ═══════════════════════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════════════════════════
-   HERO DE LA PÁGINA
+   SECCIÓN CONTENEDOR
 ══════════════════════════════════════════════════════════════ */
-.destinos-hero {
-  background: linear-gradient(135deg, #0a1910 0%, #1a3520 60%, #0d2a18 100%);
-  padding: 8rem 2rem 4rem;
-  position: relative;
-  overflow: hidden;
+.destinos-seccion {
+  background: #0a1910;
+  width: 100%;
 }
 
-.destinos-hero::before {
+/* ── Header dinámico ──────────────────────────────────────────── */
+.destinos-seccion__header {
+  background: linear-gradient(160deg, #0d2218 0%, #162e1c 50%, #0a1910 100%);
+  padding: 3.5rem 2rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(150,172,96,0.1);
+}
+
+.destinos-seccion__header::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(150,172,96,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(68,90,20,0.12) 0%, transparent 40%);
+    radial-gradient(circle at 10% 60%, rgba(150,172,96,0.07) 0%, transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(68,90,20,0.1) 0%, transparent 40%);
   pointer-events: none;
 }
 
-.destinos-hero__inner {
+.destinos-seccion__header .destinos-hero__inner {
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding-bottom: 1.5rem;
 }
 
+/* Eyebrow */
 .destinos-hero__eyebrow {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
 }
 
 .destinos-hero__eyebrow-linea {
   display: block;
-  width: 28px;
+  width: 22px;
   height: 1px;
   background: #96ac60;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .destinos-hero__eyebrow-texto {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   color: #96ac60;
   text-transform: uppercase;
 }
 
+/* Título de la región */
 .destinos-hero__titulo {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600;
   color: #ffffff;
   line-height: 1.1;
-  margin-bottom: 0.75rem;
+  margin: 0;
 }
 
 .destinos-hero__titulo em {
@@ -70,24 +80,15 @@
   color: #b7cd7f;
 }
 
-.destinos-hero__subtitulo {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.55);
-  max-width: 480px;
-  line-height: 1.7;
-}
-
 /* ══════════════════════════════════════════════════════════════
    BARRA DE FILTROS
 ══════════════════════════════════════════════════════════════ */
 .destinos-filtros {
   background: #0d1f15;
-  border-bottom: 1px solid rgba(150,172,96,0.12);
+  border-bottom: 1px solid rgba(150,172,96,0.1);
   padding: 0 2rem;
   position: sticky;
-  top: 72px;
+  top: 0;
   z-index: 50;
 }
 
@@ -98,7 +99,7 @@
   align-items: center;
   gap: 0.5rem;
   overflow-x: auto;
-  padding: 1rem 0;
+  padding: 0.9rem 0;
   scrollbar-width: none;
 }
 
@@ -107,16 +108,16 @@
 .filtro-btn {
   flex-shrink: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 0.45rem 1.1rem;
+  letter-spacing: 0.06em;
+  padding: 0.42rem 1rem;
   border-radius: 20px;
-  border: 1px solid rgba(150,172,96,0.25);
+  border: 1px solid rgba(150,172,96,0.22);
   background: transparent;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.5);
   cursor: pointer;
-  transition: all 0.22s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
@@ -133,12 +134,11 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   CONTENEDOR PRINCIPAL
+   CONTENEDOR DE CARDS
 ══════════════════════════════════════════════════════════════ */
 .destinos-main {
   background: #0a1910;
-  min-height: 60vh;
-  padding: 3.5rem 2rem 6rem;
+  padding: 3rem 2rem 6rem;
 }
 
 .destinos-main__inner {
@@ -146,14 +146,14 @@
   margin: 0 auto;
 }
 
-/* Contador de resultados */
+/* Contador */
 .destinos-contador {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.3);
   letter-spacing: 0.04em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .destinos-contador span {
@@ -162,12 +162,12 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   GRID DE CARDS
+   GRID DE CARDS — 3 columnas fijas en desktop
 ══════════════════════════════════════════════════════════════ */
 .destinos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -176,81 +176,80 @@
 .destino-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(150,172,96,0.1);
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 
   opacity: 0;
-  transform: translateY(24px);
-  animation: cardEntrada 0.55s ease forwards;
+  transform: translateY(20px);
+  animation: cardEntrada 0.5s ease forwards;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .destino-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  border-color: rgba(150,172,96,0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+  border-color: rgba(150,172,96,0.28);
 }
 
 /* ── Imagen ───────────────────────────────────────────────────── */
 .destino-card__img-wrap {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: rgba(150,172,96,0.08);
+  background: rgba(150,172,96,0.06);
+  flex-shrink: 0;
 }
 
 .destino-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   transition: transform 0.5s ease;
 }
 
 .destino-card:hover .destino-card__img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-/* Badge de región sobre la imagen */
-.destino-card__badge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.7rem;
-  border-radius: 20px;
-  background: rgba(10,25,16,0.75);
-  backdrop-filter: blur(6px);
-  color: #b7cd7f;
-  border: 1px solid rgba(183,205,127,0.3);
-}
-
-/* Gradiente inferior sobre la imagen */
 .destino-card__img-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: linear-gradient(to top, rgba(10,25,16,0.7) 0%, transparent 100%);
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,25,16,0.65) 0%, transparent 55%);
 }
 
-/* ── Contenido ────────────────────────────────────────────────── */
+.destino-card__badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 20px;
+  background: rgba(10,25,16,0.78);
+  backdrop-filter: blur(8px);
+  color: #b7cd7f;
+  border: 1px solid rgba(183,205,127,0.28);
+}
+
+/* ── Cuerpo ───────────────────────────────────────────────────── */
 .destino-card__body {
-  padding: 1.5rem 1.5rem 1.25rem;
+  padding: 1.25rem 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
+  flex: 1;
 }
 
 .destino-card__nombre {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.1;
@@ -258,9 +257,9 @@
 
 .destino-card__descripcion {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 300;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.5);
   line-height: 1.75;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -268,47 +267,43 @@
   overflow: hidden;
 }
 
-/* Actividades */
 .destino-card__actividades {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.25rem;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
 }
 
 .destino-card__tag {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  padding: 0.22rem 0.6rem;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
   border-radius: 20px;
   background: rgba(150,172,96,0.1);
-  border: 1px solid rgba(150,172,96,0.2);
+  border: 1px solid rgba(150,172,96,0.18);
   color: #96ac60;
 }
 
-/* ── Footer de la card ────────────────────────────────────────── */
-.destino-card__footer {
-  padding: 0 1.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
+/* ── Footer ───────────────────────────────────────────────────── */
 .destino-card__divisor {
   height: 1px;
-  background: rgba(150,172,96,0.1);
-  margin: 0 1.5rem 1.25rem;
+  background: rgba(150,172,96,0.08);
+  margin: 0 1.25rem;
+}
+
+.destino-card__footer {
+  padding: 0.9rem 1.25rem 1.1rem;
 }
 
 .destino-card__ver-mas {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: #96ac60;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   transition: gap 0.2s ease, color 0.2s ease;
@@ -320,7 +315,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   ESTADO VACÍO (sin resultados)
+   ESTADO VACÍO
 ══════════════════════════════════════════════════════════════ */
 .destinos-vacio {
   display: none;
@@ -332,9 +327,7 @@
   color: rgba(255,255,255,0.3);
 }
 
-.destinos-vacio.visible {
-  display: flex;
-}
+.destinos-vacio.visible { display: flex; }
 
 .destinos-vacio__texto {
   font-family: 'Montserrat', sans-serif;
@@ -343,131 +336,206 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════════════════════════ */
-.destinos-footer {
-  background: #060f0a;
-  padding: 2rem;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.25);
-  border-top: 1px solid rgba(150,172,96,0.08);
-}
-
-.destinos-footer a {
-  color: #96ac60;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-
-.destinos-footer a:hover {
-  color: #b7cd7f;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   ANIMACIÓN DE ENTRADA DE CARDS
+   ANIMACIÓN
 ══════════════════════════════════════════════════════════════ */
 @keyframes cardEntrada {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* Retrasos escalonados */
-.destino-card:nth-child(1)  { animation-delay: 0.05s; }
-.destino-card:nth-child(2)  { animation-delay: 0.12s; }
-.destino-card:nth-child(3)  { animation-delay: 0.19s; }
-.destino-card:nth-child(4)  { animation-delay: 0.26s; }
-.destino-card:nth-child(5)  { animation-delay: 0.33s; }
-.destino-card:nth-child(6)  { animation-delay: 0.40s; }
-.destino-card:nth-child(7)  { animation-delay: 0.47s; }
-.destino-card:nth-child(8)  { animation-delay: 0.54s; }
 
 /* ══════════════════════════════════════════════════════════════
    RESPONSIVO
 ══════════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .destinos-hero { padding: 7rem 1.5rem 3rem; }
-  .destinos-grid { grid-template-columns: 1fr; }
-  .destinos-main { padding: 2.5rem 1.25rem 4rem; }
+@media (max-width: 960px) {
+  .destinos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 480px) {
-  .destinos-hero__titulo { font-size: 2.2rem; }
+@media (max-width: 600px) {
+  .destinos-grid {
+    grid-template-columns: 1fr;
+  }
+  .destinos-seccion__header {
+    padding: 2.5rem 1.25rem 0;
+  }
+  .destinos-main {
+    padding: 2rem 1.25rem 4rem;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════════
-   VISTA SPA — mostrar/ocultar sin recargar página
+   MODAL DE DETALLE DE DESTINO
 ══════════════════════════════════════════════════════════════ */
-.vista-destinos {
+.modal-destino {
   position: fixed;
   inset: 0;
-  z-index: 200;
-  background: #0a1910;
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.vista-destinos.oculta {
-  transform: translateX(100%);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.vista-destinos.visible {
-  transform: translateX(0);
+.modal-destino.abierto {
+  opacity: 1;
   pointer-events: auto;
 }
 
-/* Botón volver en la vista de destinos */
-.btn-volver-inicio {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: none;
-  border: none;
-  padding: 0;
-  color: rgba(255,255,255,0.7);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  cursor: pointer;
-  transition: color 0.25s ease;
-  text-decoration: none;
-}
-
-.btn-volver-inicio:hover {
-  color: #ffffff;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   SECCIÓN DESTINOS DENTRO DEL INDEX (una sola página)
-══════════════════════════════════════════════════════════════ */
-.destinos-seccion {
-  background: #0a1910;
-  min-height: 0;
-}
-
-.destinos-seccion__header {
-  background: linear-gradient(135deg, #0a1910 0%, #1a3520 60%, #0d2a18 100%);
-  padding: 4rem 2rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.destinos-seccion__header::before {
-  content: '';
+.modal-destino__backdrop {
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(150,172,96,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(68,90,20,0.12) 0%, transparent 40%);
-  pointer-events: none;
+  background: rgba(5, 15, 8, 0.85);
+  backdrop-filter: blur(6px);
 }
 
-.destinos-seccion__header .destinos-hero__titulo {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+.modal-destino__panel {
+  position: relative;
+  z-index: 1;
+  background: #0f2318;
+  border: 1px solid rgba(150,172,96,0.2);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150,172,96,0.2) transparent;
+}
+
+.modal-destino.abierto .modal-destino__panel {
+  transform: translateY(0) scale(1);
+}
+
+/* Cerrar */
+.modal-destino__cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10,25,16,0.75);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-destino__cerrar:hover {
+  background: rgba(150,172,96,0.25);
+  color: #fff;
+}
+
+/* Imagen */
+.modal-destino__img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  background: rgba(150,172,96,0.08);
+}
+
+.modal-destino__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-destino__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,25,16,0.8) 0%, transparent 50%);
+}
+
+.modal-destino__badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(10,25,16,0.75);
+  backdrop-filter: blur(6px);
+  color: #b7cd7f;
+  border: 1px solid rgba(183,205,127,0.3);
+}
+
+/* Cuerpo */
+.modal-destino__body {
+  padding: 1.75rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-destino__nombre {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.modal-destino__descripcion {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+}
+
+.modal-destino__seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.modal-destino__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+.modal-destino__actividades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* Fix: botón ver-mas como button real */
+.destino-card__ver-mas {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #96ac60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.destino-card:hover .destino-card__ver-mas {
+  gap: 0.65rem;
+  color: #b7cd7f;
 }
