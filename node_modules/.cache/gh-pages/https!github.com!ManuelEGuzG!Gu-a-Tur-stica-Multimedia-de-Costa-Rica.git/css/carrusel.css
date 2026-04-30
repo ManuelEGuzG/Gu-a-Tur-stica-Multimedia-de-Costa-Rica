@@ -1,0 +1,192 @@
+/* ═══════════════════════════════════════════════════════════════
+   carrusel.css — Galería fotográfica de Costa Rica
+   Guía Turística Multimedia de Costa Rica
+   IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   SECCIÓN
+══════════════════════════════════════════════════════════════ */
+.carrusel-seccion {
+  background: #0a1910;
+  padding: 5rem 0 4rem;
+  overflow: hidden;
+}
+
+/* ── Encabezado ───────────────────────────────────────────────── */
+.carrusel-seccion__encabezado {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.carrusel-seccion__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
+}
+
+.carrusel-seccion__eyebrow-linea {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #96ac60;
+  opacity: 0.6;
+}
+
+.carrusel-seccion__eyebrow-texto {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: #96ac60;
+  text-transform: uppercase;
+}
+
+.carrusel-seccion__titulo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CARRUSEL
+══════════════════════════════════════════════════════════════ */
+.carrusel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Track wrapper — ventana de visibilidad ───────────────────── */
+.carrusel__track-wrapper {
+  flex: 1;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carrusel__track-wrapper:active {
+  cursor: grabbing;
+}
+
+/* ── Track — fila de fotos ────────────────────────────────────── */
+.carrusel__track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  padding: 0.5rem 0;
+}
+
+/* ── Cada tarjeta de foto ─────────────────────────────────────── */
+.carrusel__item {
+  flex: 0 0 calc(33.333% - 0.67rem); /* 3 fotos visibles */
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: rgba(150,172,96,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrusel__item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.carrusel__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.carrusel__item:hover img {
+  transform: scale(1.05);
+}
+
+/* ── Botones anterior / siguiente ─────────────────────────────── */
+.carrusel__btn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(150,172,96,0.12);
+  border: 1px solid rgba(150,172,96,0.25);
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.2s ease;
+  z-index: 2;
+  margin: 0 1rem;
+}
+
+.carrusel__btn:hover {
+  background: rgba(150,172,96,0.28);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.carrusel__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+}
+
+/* ── Indicadores (puntos) ─────────────────────────────────────── */
+.carrusel__indicadores {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.75rem;
+  padding: 0 2rem;
+}
+
+.carrusel__punto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(150,172,96,0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+}
+
+.carrusel__punto.activo {
+  background: #96ac60;
+  width: 20px;
+  border-radius: 3px;
+}
+
+.carrusel__punto:hover:not(.activo) {
+  background: rgba(150,172,96,0.55);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .carrusel__item {
+    flex: 0 0 calc(50% - 0.5rem); /* 2 fotos visibles */
+  }
+}
+
+@media (max-width: 560px) {
+  .carrusel__item {
+    flex: 0 0 calc(85% - 0.5rem); /* 1 foto visible con peeking */
+  }
+  .carrusel__btn {
+    width: 38px;
+    height: 38px;
+    margin: 0 0.5rem;
+  }
+}

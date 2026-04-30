@@ -1,0 +1,90 @@
+[
+  {
+    "id": "guanacaste-001",
+    "nombre": "Tamarindo",
+    "region": "Pacífico Norte",
+    "region_id": "guanacaste",
+    "descripcion": "Destino de fama mundial por sus olas perfectas para el surf y sus espectaculares puestas de sol. El Parque Nacional Marino Las Baulas protege las playas de anidación de tortugas baulas.",
+    "imagen_portada": "assets/img/destinos/tamarindo.jpg",
+    "actividades": ["Surf", "Avistamiento de tortugas", "Pesca deportiva", "Snorkel"],
+    "lat": 10.2993,
+    "lng": -85.8367
+  },
+  {
+    "id": "guanacaste-002",
+    "nombre": "Rincón de la Vieja",
+    "region": "Pacífico Norte",
+    "region_id": "guanacaste",
+    "descripcion": "El Parque Nacional Rincón de la Vieja alberga uno de los volcanes más activos de Costa Rica, con fumarolas, pozas de barro hirviente y cataratas en un bosque seco tropical único.",
+    "imagen_portada": "assets/img/destinos/rincon-vieja.jpg",
+    "actividades": ["Senderismo volcánico", "Canopy", "Tubing", "Aguas termales"],
+    "lat": 10.8317,
+    "lng": -85.3242
+  },
+  {
+    "id": "puntarenas-001",
+    "nombre": "Manuel Antonio",
+    "region": "Pacífico Central",
+    "region_id": "puntarenas",
+    "descripcion": "El parque más visitado de Costa Rica combina playas de arena blanca con bosque tropical primario. Hogar de monos, perezosos e iguanas a pocos metros del mar.",
+    "imagen_portada": "assets/img/destinos/manuel-antonio.jpg",
+    "actividades": ["Senderismo", "Natación", "Observación de fauna", "Kayak"],
+    "lat": 9.3935,
+    "lng": -84.1414
+  },
+  {
+    "id": "puntarenas-002",
+    "nombre": "Uvita y Marino Ballena",
+    "region": "Pacífico Central",
+    "region_id": "puntarenas",
+    "descripcion": "Famoso por la Cola de Ballena, una formación natural de arena visible en marea baja. Principal sitio de avistamiento de ballenas jorobadas en Costa Rica.",
+    "imagen_portada": "assets/img/destinos/uvita.jpg",
+    "actividades": ["Avistamiento de ballenas", "Snorkel", "Kayak", "Senderismo"],
+    "lat": 9.1574,
+    "lng": -83.7319
+  },
+  {
+    "id": "limon-001",
+    "nombre": "Cahuita",
+    "region": "Huetar Atlántica",
+    "region_id": "limon",
+    "descripcion": "Joya del Caribe costarricense con arrecifes de coral, playas de arena negra y una vibrante cultura afrocaribeña. Sus aguas turquesas son perfectas para el snorkel.",
+    "imagen_portada": "assets/img/destinos/cahuita.jpg",
+    "actividades": ["Snorkel", "Senderismo", "Observación de fauna", "Surf"],
+    "lat": 9.7369,
+    "lng": -82.8411
+  },
+  {
+    "id": "limon-002",
+    "nombre": "Puerto Viejo de Talamanca",
+    "region": "Huetar Atlántica",
+    "region_id": "limon",
+    "descripcion": "Atmósfera bohemia única con playas de fama mundial como Playa Cocles. La ruta del chocolate a través de las fincas de cacao locales es experiencia imperdible.",
+    "imagen_portada": "assets/img/destinos/puerto-viejo.jpg",
+    "actividades": ["Surf", "Ruta del chocolate", "Ciclismo", "Kayak"],
+    "lat": 9.6557,
+    "lng": -82.7534
+  },
+  {
+    "id": "central-001",
+    "nombre": "Volcán Poás",
+    "region": "Huetar Norte",
+    "region_id": "huetar-norte",
+    "descripcion": "Uno de los cráteres activos más grandes del mundo accesibles al público. Desde el mirador se observa su laguna cratérica de color turquesa azufrado rodeada de páramo.",
+    "imagen_portada": "assets/img/destinos/poas.jpg",
+    "actividades": ["Senderismo", "Observación del cráter", "Fotografía", "Avistamiento de quetzales"],
+    "lat": 10.1996,
+    "lng": -84.2328
+  },
+  {
+    "id": "central-002",
+    "nombre": "Valle de Orosi",
+    "region": "Central Sur",
+    "region_id": "central-sur",
+    "descripcion": "Considerado uno de los valles más bellos de Costa Rica. Rodeado de cafetales, alberga la iglesia colonial más antigua del país y el Parque Nacional Tapantí.",
+    "imagen_portada": "assets/img/destinos/orosi.jpg",
+    "actividades": ["Turismo de café", "Senderismo", "Ciclismo", "Aguas termales"],
+    "lat": 9.7906,
+    "lng": -83.8465
+  }
+]
