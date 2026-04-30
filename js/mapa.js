@@ -166,13 +166,15 @@ provincias.forEach(prov => {
   });
 });
 
-/* Botón "Ver destinos" — navega a destinos.html con la región */
+/* Botón "Ver destinos" — dispara evento que destinos.js escucha */
 if (panelBtn) {
   panelBtn.addEventListener('click', () => {
-    const id = panelBtn.dataset.region;
-    if (!id) return;
-    const regionParam = encodeURIComponent(REGIONES[id]?.etiqueta || id);
-    window.location.href = `destinos.html?region=${regionParam}`;
+    if (!regionActiva) return;
+    const datos = REGIONES[regionActiva];
+    if (!datos) return;
+    document.dispatchEvent(new CustomEvent('verDestinos', {
+      detail: { region: datos.etiqueta }
+    }));
   });
 }
 

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   destinos.js — Vista de destinos turísticos (SPA)
+   destinos.js — Carga y renderiza destinos dentro del index
    Guía Turística Multimedia de Costa Rica
    IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
    ═══════════════════════════════════════════════════════════════ */
@@ -10,33 +10,64 @@ const grid        = document.getElementById('destinosGrid');
 const contador    = document.getElementById('destinosContador');
 const vacio       = document.getElementById('destinosVacio');
 const filtrosWrap = document.getElementById('destinosFiltros');
+const header      = document.getElementById('destinosHeader');
+const regionTexto = document.getElementById('destinosRegionTexto');
+const secDestinos = document.getElementById('destinos');
 
 let todosLosDestinos = [];
 let regionActiva     = 'todas';
+let jsonCargado      = false;
 
 /* ══════════════════════════════════════════════════════════════
-   CARGAR JSON UNA SOLA VEZ
+   ESCUCHAR EVENTO desde mapa.js
+══════════════════════════════════════════════════════════════ */
+document.addEventListener('verDestinos', async (e) => {
+  const region = e.detail?.region || 'todas';
+  await mostrar(region);
+});
+
+/* ══════════════════════════════════════════════════════════════
+   FUNCIÓN PRINCIPAL
+══════════════════════════════════════════════════════════════ */
+async function mostrar(regionNombre) {
+  await cargarJSON();
+
+  regionActiva = regionNombre || 'todas';
+
+  // Actualizar título
+  if (regionTexto) {
+    regionTexto.textContent = regionActiva !== 'todas' ? regionActiva : 'Costa Rica';
+  }
+
+  // Mostrar encabezado y filtros
+  if (header) header.style.display = '';
+
+  actualizarFiltroActivo();
+  renderizarGrid(filtrar());
+
+  // Scroll suave hacia la sección
+  setTimeout(() => {
+    secDestinos?.scrollIntoView({ behavior: 'smooth' });
+  }, 100);
+}
+
+// Exponer también como función global por si se necesita
+window.mostrarDestinosPorRegion = mostrar;
+
+/* ══════════════════════════════════════════════════════════════
+   CARGAR JSON (solo una vez)
 ══════════════════════════════════════════════════════════════ */
 async function cargarJSON() {
-  if (todosLosDestinos.length > 0) return; // ya cargado
+  if (jsonCargado) return;
   try {
     const res = await fetch('data/destinos.json');
     todosLosDestinos = await res.json();
+    jsonCargado = true;
     generarFiltros();
   } catch (err) {
-    console.error('[destinos.js] Error cargando destinos.json:', err);
+    console.error('[destinos.js] Error cargando JSON:', err);
   }
 }
-
-/* ══════════════════════════════════════════════════════════════
-   FUNCIÓN PÚBLICA — llamada desde router.js
-══════════════════════════════════════════════════════════════ */
-window.cargarDestinosPorRegion = async function(region) {
-  await cargarJSON();
-  regionActiva = region || 'todas';
-  actualizarFiltroActivo();
-  renderizarGrid(filtrar());
-};
 
 /* ══════════════════════════════════════════════════════════════
    FILTRAR
@@ -54,14 +85,17 @@ function generarFiltros() {
   const regiones = ['todas', ...new Set(todosLosDestinos.map(d => d.region))];
 
   filtrosWrap.innerHTML = regiones.map(r => `
-    <button class="filtro-btn ${r === regionActiva ? 'activo' : ''}" data-region="${r}">
-      ${r === 'todas' ? 'Todos los destinos' : r}
+    <button class="filtro-btn" data-region="${r}">
+      ${r === 'todas' ? 'Todos' : r}
     </button>
   `).join('');
 
   filtrosWrap.querySelectorAll('.filtro-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       regionActiva = btn.dataset.region;
+      if (regionTexto) {
+        regionTexto.textContent = regionActiva !== 'todas' ? regionActiva : 'Costa Rica';
+      }
       actualizarFiltroActivo();
       renderizarGrid(filtrar());
     });
@@ -81,8 +115,7 @@ function renderizarGrid(destinos) {
   if (!grid) return;
 
   if (contador) {
-    const total = destinos.length;
-    contador.innerHTML = `Mostrando <span>${total}</span> destino${total !== 1 ? 's' : ''}`;
+    contador.innerHTML = `Mostrando <span>${destinos.length}</span> destino${destinos.length !== 1 ? 's' : ''}`;
   }
 
   if (destinos.length === 0) {
@@ -95,8 +128,8 @@ function renderizarGrid(destinos) {
   grid.innerHTML = destinos.map((d, i) => `
     <article class="destino-card" style="animation-delay:${0.05 + i * 0.07}s">
       <div class="destino-card__img-wrap">
-        <img class="destino-card__img" src="${d.imagen_portada}" alt="${d.nombre}"
-             loading="lazy" onerror="this.style.opacity='0'" />
+        <img class="destino-card__img" src="${d.imagen_portada}"
+             alt="${d.nombre}" loading="lazy" onerror="this.style.opacity='0'" />
         <div class="destino-card__img-overlay"></div>
         <span class="destino-card__badge">${d.region}</span>
       </div>
@@ -122,7 +155,5 @@ function renderizarGrid(destinos) {
   `).join('');
 }
 
-/* ══════════════════════════════════════════════════════════════
-   PRECARGAR el JSON en segundo plano al iniciar la app
-══════════════════════════════════════════════════════════════ */
+/* Precargar JSON al iniciar la página */
 cargarJSON();

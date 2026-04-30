@@ -442,3 +442,32 @@
 .btn-volver-inicio:hover {
   color: #ffffff;
 }
+
+/* ══════════════════════════════════════════════════════════════
+   SECCIÓN DESTINOS DENTRO DEL INDEX (una sola página)
+══════════════════════════════════════════════════════════════ */
+.destinos-seccion {
+  background: #0a1910;
+  min-height: 0;
+}
+
+.destinos-seccion__header {
+  background: linear-gradient(135deg, #0a1910 0%, #1a3520 60%, #0d2a18 100%);
+  padding: 4rem 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.destinos-seccion__header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(150,172,96,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(68,90,20,0.12) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.destinos-seccion__header .destinos-hero__titulo {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}

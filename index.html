@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/mapa.css" />
   <link rel="stylesheet" href="css/carrusel.css" />
   <link rel="stylesheet" href="css/datos.css" />
+  <link rel="stylesheet" href="css/destinos.css" />
 </head>
 <body>
 
@@ -374,14 +375,42 @@
   </section>
 
   <!-- DESTINOS -->
-  <main id="destinos" class="destinos" aria-label="Listado de destinos">
-    <div id="contenedor-destinos" class="destinos__grid"></div>
-  </main>
+  <section id="destinos" class="destinos-seccion" aria-label="Listado de destinos">
+
+    <!-- Encabezado dinámico (se actualiza al seleccionar región) -->
+    <div class="destinos-seccion__header" id="destinosHeader" style="display:none">
+      <div class="destinos-hero__inner">
+        <div class="destinos-hero__eyebrow">
+          <span class="destinos-hero__eyebrow-linea"></span>
+          <span class="destinos-hero__eyebrow-texto">DESTINOS</span>
+        </div>
+        <h2 class="destinos-hero__titulo">
+          <em id="destinosRegionTexto">Pura Vida</em>
+        </h2>
+      </div>
+      <!-- Filtros -->
+      <nav class="destinos-filtros" aria-label="Filtrar por región">
+        <div class="destinos-filtros__inner" id="destinosFiltros"></div>
+      </nav>
+    </div>
+
+    <div class="destinos-main">
+      <div class="destinos-main__inner">
+        <p class="destinos-contador" id="destinosContador"></p>
+        <div class="destinos-grid" id="destinosGrid"></div>
+        <div class="destinos-vacio" id="destinosVacio">
+          <p class="destinos-vacio__texto">No hay destinos para esta región todavía.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
   <!-- Audio de fondo -->
   <audio id="musicaFondo" src="assets/audio/musica-fondo.mp3" loop preload="auto"></audio>
 
   <script src="js/portada.js"></script>
+  <script src="js/destinos.js"></script>
   <script src="js/mapa.js"></script>
   <script src="js/carrusel.js"></script>
   <script src="js/audio.js"></script>
