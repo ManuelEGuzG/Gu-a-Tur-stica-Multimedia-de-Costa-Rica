@@ -113,3 +113,5 @@ Sandoval, J. D., & Sandoval, J. D. (2024, 11 abril). Autoridades cierran de nuev
 Rica, A. T. C. (2023, 12 agosto). 6 consejos de seguridad para los turistas que visitan La Fortuna, Costa Rica. Adventure Tours Costa Rica. https://www.adventuretourscostarica.com/es/blog/6-safety-tips-for-tourists-visiting-la-fortuna-costa-rica 
 
 Azteca Tours - Agencia de Viajes a México y Costa Rica. (2025, 28 mayo). Río Celeste - Azteca Tours. Azteca Tours. https://aztecatours.com/tour/rio-celeste/
+
+Bajos del Toro – Mae happy. (s. f.). https://maehappy.com/destination/bajos-del-toro-amarillo/ 

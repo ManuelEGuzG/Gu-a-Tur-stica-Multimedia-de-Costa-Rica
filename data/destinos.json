@@ -213,5 +213,16 @@
   "actividades": ["Senderismo", "Fotografía", "Observación de fauna", "Visita a cataratas"],
   "lat": 10.7063,
   "lng": -84.9795
+},
+{
+  "id": "huetar-norte-004",
+  "nombre": "Bajos del Toro",
+  "region": "Huetar Norte",
+  "region_id": "huetar-norte",
+  "descripcion": "Destino natural poco explorado en las montañas de Alajuela, famoso por sus impresionantes cataratas como Catarata del Toro y Blue Falls. Rodeado de bosque nuboso y cañones volcánicos, es ideal para quienes buscan paisajes únicos y experiencias fuera de lo convencional.",
+  "imagen_portada": "assets/img/destinos/region-huetar-norte/bajos-del-toro.jpg",
+  "actividades": ["Senderismo", "Visita a cataratas", "Fotografía", "Observación de paisajes"],
+  "lat": 10.2236,
+  "lng": -84.2950
 }
 ]
