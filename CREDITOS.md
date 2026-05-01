@@ -69,6 +69,10 @@ Camarillo, B. (2022, 4 julio). La mejor playa del mundo está en Costa Rica. Per
 
 Sanabria, S. (s. f.). Sitio Histórico Parque Nacional Santa Rosa, reabrió sus puertas al turismo. Periódico Mensaje Guanacaste. https://www.periodicomensaje.com/turismo-negocios/5351-sitio-historico-parque-nacional-santa-rosa-reabrio-sus-puertas-al-turismo
 
+Pura Vida University & por Pura Vida University. (2020, 21 septiembre). Miles de tortugas arriban a las playas de Ostional - Pura Vida University. Turismo de Costa Rica. Pura Vida University. Turismo de Costa Rica. https://www.puravidauniversity.eu/blog/miles-de-tortugas-arriban-a-las-playas-de-ostional/
+
+Arnold Palmer Signature Golf Course - Peninsula Papagayo. (2026, 13 enero). Peninsula Papagayo Costa Rica. https://peninsulapapagayo.com/golf-course/
+
 
 Pacifico Central
 
@@ -98,8 +102,12 @@ The Agency Costa Rica Real Estate | Beach, City & Mountain properties, homes, es
 
 colaboradores de Wikipedia. (2024, 25 septiembre). Parque Nacional Volcán Irazú. Wikipedia, la Enciclopedia Libre. https://es.wikipedia.org/wiki/Parque_Nacional_Volc%C3%A1n_Iraz%C3%BA 
 
+Córdoba, D. (2025, 25 abril). Parque Chirripó cumple 50 años y lo celebrará con diversas actividades. CR Hoy | Periodico Digital | Costa Rica Noticias 24/7. https://crhoy.com/parque-chirripo-cumple-50-anos-y-lo-celebrara-con-diversas-a/ 
+
 Huetar Norte
 
 Sandoval, J. D., & Sandoval, J. D. (2024, 11 abril). Autoridades cierran de nuevo el Volcán Poás debido a probabilidad de erupción. CRC 891. https://crc891.com/nacionales/autoridades-cierran-de-nuevo-el-volcan-poas-debido-a-probabilidad-de-erupcion/
 
 Rica, A. T. C. (2023, 12 agosto). 6 consejos de seguridad para los turistas que visitan La Fortuna, Costa Rica. Adventure Tours Costa Rica. https://www.adventuretourscostarica.com/es/blog/6-safety-tips-for-tourists-visiting-la-fortuna-costa-rica 
+
+Azteca Tours - Agencia de Viajes a México y Costa Rica. (2025, 28 mayo). Río Celeste - Azteca Tours. Azteca Tours. https://aztecatours.com/tour/rio-celeste/

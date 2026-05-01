@@ -40,6 +40,28 @@
     "lat": 10.8833, "lng": -85.6167
   },
   {
+  "id": "guanacaste-005",
+  "nombre": "Playa Ostional",
+  "region": "Pacífico Norte",
+  "region_id": "guanacaste",
+  "descripcion": "Famosa por el Refugio Nacional de Vida Silvestre Ostional, es uno de los pocos lugares en el mundo donde ocurre la 'arribada', un fenómeno natural donde miles de tortugas marinas llegan simultáneamente a desovar. Un destino único para el ecoturismo y la conservación.",
+  "imagen_portada": "assets/img/destinos/region-pacifico-norte/ostional.jpg",
+  "actividades": ["Avistamiento de tortugas", "Senderismo", "Observación de fauna", "Fotografía"],
+  "lat": 9.9966,
+  "lng": -85.6969
+},
+{
+  "id": "guanacaste-006",
+  "nombre": "Península de Papagayo",
+  "region": "Pacífico Norte",
+  "region_id": "guanacaste",
+  "descripcion": "Exclusivo destino turístico en la costa del Pacífico Norte, reconocido por sus playas de aguas tranquilas, resorts de lujo y campos de golf de clase mundial. Ofrece una combinación de naturaleza, confort y actividades acuáticas en un entorno de bosque seco tropical.",
+  "imagen_portada": "assets/img/destinos/region-pacifico-norte/papagayo.jpg",
+  "actividades": ["Snorkel", "Kayak", "Pesca deportiva", "Golf"],
+  "lat": 10.6247,
+  "lng": -85.6573
+},
+  {
     "id": "puntarenas-001",
     "nombre": "Manuel Antonio",
     "region": "Pacífico Central",
@@ -140,6 +162,17 @@
     "lat": 9.9792, "lng": -83.8519
   },
   {
+  "id": "central-sur-003",
+  "nombre": "Cerro Chirripó",
+  "region": "Central Sur",
+  "region_id": "central-sur",
+  "descripcion": "El punto más alto de Costa Rica con 3,820 msnm, ubicado en el Parque Nacional Chirripó. Famoso por sus paisajes únicos de páramo, lagunas glaciares y vistas espectaculares donde, en días despejados, se pueden observar tanto el océano Pacífico como el mar Caribe.",
+  "imagen_portada": "assets/img/destinos/region-central/chirripo.jpg",
+  "actividades": ["Senderismo de alta montaña", "Camping", "Fotografía", "Observación de paisajes"],
+  "lat": 9.4936,
+  "lng": -83.4886
+},
+  {
     "id": "huetar-norte-001",
     "nombre": "Volcán Poás",
     "region": "Huetar Norte",
@@ -158,5 +191,16 @@
     "imagen_portada": "assets/img/destinos/region-huetar-norte/arenal.jpg",
     "actividades": ["Aguas termales", "Canopy", "Kayak", "Senderismo"],
     "lat": 10.4693, "lng": -84.6435
-  }
+  },
+  {
+  "id": "huetar-norte-003",
+  "nombre": "Río Celeste",
+  "region": "Huetar Norte",
+  "region_id": "huetar-norte",
+  "descripcion": "Ubicado en el Parque Nacional Volcán Tenorio, Río Celeste es famoso por su intenso color azul turquesa, resultado de una reacción química natural. Destacan la catarata de Río Celeste, los teñideros y senderos rodeados de exuberante bosque tropical.",
+  "imagen_portada": "assets/img/destinos/region-huetar-norte/rio-celeste.jpeg",
+  "actividades": ["Senderismo", "Fotografía", "Observación de fauna", "Visita a cataratas"],
+  "lat": 10.7063,
+  "lng": -84.9795
+}
 ]

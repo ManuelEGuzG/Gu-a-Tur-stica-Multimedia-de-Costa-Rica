@@ -51,12 +51,8 @@
           <line x1="8" y1="2" x2="8" y2="18"/>
           <line x1="16" y1="6" x2="16" y2="22"/>
         </svg>
-        EXPLORAR MAPA
+        <span>EXPLORAR MAPA</span>
       </button>
-      <div class="navbar__idioma" role="group" aria-label="Seleccionar idioma">
-        <button class="navbar__idioma-btn activo" data-lang="es" aria-pressed="true">ES</button>
-        <button class="navbar__idioma-btn" data-lang="en" aria-pressed="false">EN</button>
-      </div>
     </div>
   </nav>
 
@@ -69,7 +65,7 @@
     <div class="portada__contenido">
       <div class="portada__eyebrow" aria-hidden="true">
         <span class="portada__eyebrow-linea"></span>
-        <span class="portada__eyebrow-texto">GUÍA TURÍSTICA &nbsp;·&nbsp; 7 PROVINCIAS</span>
+        <span class="portada__eyebrow-texto">GUÍA TURÍSTICA · 7 PROVINCIAS</span>
       </div>
       <h1 class="portada__titulo">
         <span class="portada__titulo-principal">Descubre</span>
@@ -83,11 +79,11 @@
     </div>
     <div class="portada__estadisticas" aria-label="Estadísticas de la guía">
       <div class="portada__stat">
-        <span class="portada__stat-numero" data-valor="6">0</span>
+        <span class="portada__stat-numero" data-valor="5">0</span>
         <span class="portada__stat-etiqueta">REGIONES</span>
       </div>
       <div class="portada__stat">
-        <span class="portada__stat-numero" data-valor="19">0</span>
+        <span class="portada__stat-numero" data-valor="16">0</span>
         <span class="portada__stat-etiqueta">DESTINOS</span>
       </div>
       <div class="portada__stat">
@@ -251,7 +247,7 @@
             <ul class="mapa-panel__provincias-lista" id="panelProvincias"></ul>
           </div>
           <button class="mapa-panel__btn-explorar" id="panelBtnExplorar">
-            Ver destinos
+            <span>Ver destinos</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
@@ -584,7 +580,14 @@
   function renderDestinos(lista) {
     const g = document.getElementById('destinosGrid'); if (!g) return;
     const c = document.getElementById('destinosContador');
-    if (c) c.innerHTML = `Mostrando <span>${lista.length}</span> destino${lista.length!==1?'s':''}`;
+    const lang = window.idiomaActual ? window.idiomaActual() : 'es';
+    const t = window.TRADUCCIONES || {};
+    const txtMostrando = t['destinos.mostrando']?.[lang] || 'Mostrando';
+    const txtDest1     = t['destinos.destino']?.[lang]   || 'destino';
+    const txtDestN     = t['destinos.destinos']?.[lang]  || 'destinos';
+    const txtExplorar  = t['destinos.explorar']?.[lang]  || 'Explorar destino';
+    const txtActs      = t['destinos.actividades']?.[lang] || 'ACTIVIDADES';
+    if (c) c.innerHTML = `${txtMostrando} <span>${lista.length}</span> ${lista.length!==1?txtDestN:txtDest1}`;
     if (lista.length === 0) { g.innerHTML = ''; document.getElementById('destinosVacio')?.classList.add('visible'); return; }
     document.getElementById('destinosVacio')?.classList.remove('visible');
     g.innerHTML = lista.map((d,i) => `
@@ -690,10 +693,10 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <p>
-      © 2026 <a href="index.html">Guía Turística Multimedia de Costa Rica</a>
-      — IF7102 Multimedios | UCR Sede Guanacaste
+      <span>© 2026 Guía Turística Multimedia de Costa Rica — IF7102 Multimedios | UCR Sede Guanacaste</span>
     </p>
   </footer>
+
 
 </body>
 </html>
