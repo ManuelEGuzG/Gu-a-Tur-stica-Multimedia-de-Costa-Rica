@@ -84,6 +84,8 @@ Montezuma, Costa Rica. (s. f.). COSTA RICA REAL ESTATE. https://kraincostarica.
 
 Staff, F. (2021, 25 diciembre). Isla del Coco: Un refugio inolvidable en Costa Rica. Forbes Centroamérica. https://forbescentroamerica.com/2021/12/25/turismo-isla-del-coco-el-refugio-en-costa-rica/ 
 
+Native’s Way Costa Rica. (2024, 24 septiembre). Monteverde Tours | Native's Way Costa Rica - Tours & Transfers. Native’s Way Costa Rica - Tours & Transfers. https://nativeswaycostarica.com/destinations/monteverde-tours/
+
 
 Huetar Atlantica
 
