@@ -5,17 +5,9 @@
     "region": "Pacífico Norte",
     "region_id": "guanacaste",
     "descripcion": "Destino de fama mundial por sus olas perfectas para el surf y sus espectaculares puestas de sol. El Parque Nacional Marino Las Baulas protege las playas de anidación de tortugas baulas.",
-    "imagen_portada": "assets/img/destinos/tamarindo.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-1.jpg",
-      "assets/img/carrucel/foto-2.jpg",
-      "assets/img/carrucel/foto-3.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": "assets/video/hero.mp4",
+    "imagen_portada": "assets/img/destinos/region-pacifico-norte/tamarindo.jpg",
     "actividades": ["Surf", "Avistamiento de tortugas", "Pesca deportiva", "Snorkel"],
-    "lat": 10.2993,
-    "lng": -85.8367
+    "lat": 10.2993, "lng": -85.8367
   },
   {
     "id": "guanacaste-002",
@@ -23,17 +15,29 @@
     "region": "Pacífico Norte",
     "region_id": "guanacaste",
     "descripcion": "El Parque Nacional Rincón de la Vieja alberga uno de los volcanes más activos de Costa Rica, con fumarolas, pozas de barro hirviente y cataratas en un bosque seco tropical único.",
-    "imagen_portada": "assets/img/destinos/rincon-vieja.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-4.jpg",
-      "assets/img/carrucel/foto-5.jpg",
-      "assets/img/carrucel/foto-6.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": null,
+    "imagen_portada": "assets/img/destinos/region-pacifico-norte/rincon-vieja.jpg",
     "actividades": ["Senderismo volcánico", "Canopy", "Tubing", "Aguas termales"],
-    "lat": 10.8317,
-    "lng": -85.3242
+    "lat": 10.8317, "lng": -85.3242
+  },
+  {
+    "id": "guanacaste-003",
+    "nombre": "Playa Conchal",
+    "region": "Pacífico Norte",
+    "region_id": "guanacaste",
+    "descripcion": "Una de las playas más hermosas de Costa Rica, famosa por su arena formada por millones de conchas de mar trituradas. Sus aguas cristalinas son ideales para el snorkel y el buceo.",
+    "imagen_portada": "assets/img/destinos/region-pacifico-norte/conchal.jpg",
+    "actividades": ["Snorkel", "Natación", "Buceo", "Kayak"],
+    "lat": 10.3894, "lng": -85.8017
+  },
+  {
+    "id": "guanacaste-004",
+    "nombre": "Parque Nacional Santa Rosa",
+    "region": "Pacífico Norte",
+    "region_id": "guanacaste",
+    "descripcion": "El primer parque nacional de Costa Rica protege el bosque seco tropical más extenso de Mesoamérica. Lugar histórico y refugio de tortugas lora en Playa Nancite.",
+    "imagen_portada": "assets/img/destinos/region-pacifico-norte/santa-rosa.jpg",
+    "actividades": ["Senderismo", "Observación de fauna", "Surf", "Historia"],
+    "lat": 10.8833, "lng": -85.6167
   },
   {
     "id": "puntarenas-001",
@@ -41,17 +45,9 @@
     "region": "Pacífico Central",
     "region_id": "puntarenas",
     "descripcion": "El parque más visitado de Costa Rica combina playas de arena blanca con bosque tropical primario. Hogar de monos, perezosos e iguanas a pocos metros del mar.",
-    "imagen_portada": "assets/img/destinos/manuel-antonio.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-7.jpg",
-      "assets/img/carrucel/foto-8.jpg",
-      "assets/img/carrucel/foto-9.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": "assets/video/hero.mp4",
+    "imagen_portada": "assets/img/destinos/region-pacifico-central/manuel-antonio.jpg",
     "actividades": ["Senderismo", "Natación", "Observación de fauna", "Kayak"],
-    "lat": 9.3935,
-    "lng": -84.1414
+    "lat": 9.3935, "lng": -84.1414
   },
   {
     "id": "puntarenas-002",
@@ -59,16 +55,29 @@
     "region": "Pacífico Central",
     "region_id": "puntarenas",
     "descripcion": "Famoso por la Cola de Ballena, una formación natural de arena visible en marea baja. Principal sitio de avistamiento de ballenas jorobadas en Costa Rica.",
-    "imagen_portada": "assets/img/destinos/uvita.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-10.jpg",
-      "assets/img/carrucel/foto-11.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": null,
+    "imagen_portada": "assets/img/destinos/region-pacifico-central/uvita.jpg",
     "actividades": ["Avistamiento de ballenas", "Snorkel", "Kayak", "Senderismo"],
-    "lat": 9.1574,
-    "lng": -83.7319
+    "lat": 9.1574, "lng": -83.7319
+  },
+  {
+    "id": "puntarenas-003",
+    "nombre": "Montezuma",
+    "region": "Pacífico Central",
+    "region_id": "puntarenas",
+    "descripcion": "Pintoresco pueblo costero en la Península de Nicoya con cascadas, ambiente bohemio y playas vírgenes. Un refugio para mochileros y amantes de la naturaleza.",
+    "imagen_portada": "assets/img/destinos/region-pacifico-central/montezuma.jpeg",
+    "actividades": ["Cascadas", "Surf", "Yoga", "Senderismo"],
+    "lat": 9.6561, "lng": -85.0692
+  },
+  {
+    "id": "puntarenas-004",
+    "nombre": "Isla del Coco",
+    "region": "Pacífico Central",
+    "region_id": "puntarenas",
+    "descripcion": "Patrimonio Natural de la Humanidad UNESCO. Considerada uno de los mejores sitios de buceo del mundo, con tiburones martillo, mantarrayas y vida marina excepcional.",
+    "imagen_portada": "assets/img/destinos/region-pacifico-central/isla-coco.jpg",
+    "actividades": ["Buceo", "Snorkel", "Senderismo", "Fotografía submarina"],
+    "lat": 5.5333, "lng": -87.0667
   },
   {
     "id": "limon-001",
@@ -76,67 +85,78 @@
     "region": "Huetar Atlántica",
     "region_id": "limon",
     "descripcion": "Joya del Caribe costarricense con arrecifes de coral, playas de arena negra y una vibrante cultura afrocaribeña. Sus aguas turquesas son perfectas para el snorkel.",
-    "imagen_portada": "assets/img/destinos/cahuita.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-12.jpg",
-      "assets/img/carrucel/foto-13.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": null,
+    "imagen_portada": "assets/img/destinos/region-huetar-atlantica/cahuita.jpeg",
     "actividades": ["Snorkel", "Senderismo", "Observación de fauna", "Surf"],
-    "lat": 9.7369,
-    "lng": -82.8411
+    "lat": 9.7369, "lng": -82.8411
   },
   {
     "id": "limon-002",
     "nombre": "Puerto Viejo de Talamanca",
     "region": "Huetar Atlántica",
     "region_id": "limon",
-    "descripcion": "Atmósfera bohemia única con playas de fama mundial como Playa Cocles. La ruta del chocolate a través de las fincas de cacao locales es experiencia imperdible.",
-    "imagen_portada": "assets/img/destinos/puerto-viejo.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-14.jpg",
-      "assets/img/carrucel/foto-15.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": null,
+    "descripcion": "Atmósfera bohemia única con playas de fama mundial como Playa Cocles. La ruta del chocolate a través de las fincas de cacao locales es una experiencia imperdible.",
+    "imagen_portada": "assets/img/destinos/region-huetar-atlantica/puerto-viejo.jpg",
     "actividades": ["Surf", "Ruta del chocolate", "Ciclismo", "Kayak"],
-    "lat": 9.6557,
-    "lng": -82.7534
+    "lat": 9.6557, "lng": -82.7534
   },
   {
-    "id": "central-001",
+    "id": "limon-003",
+    "nombre": "Parque Nacional Tortuguero",
+    "region": "Huetar Atlántica",
+    "region_id": "limon",
+    "descripcion": "Conocido como la Amazonia costarricense, solo accesible por bote o avioneta. Es el principal sitio de anidación de tortugas verdes del Atlántico occidental.",
+    "imagen_portada": "assets/img/destinos/region-huetar-atlantica/tortuguero.jpg",
+    "actividades": ["Avistamiento de tortugas", "Recorridos en bote", "Observación de aves", "Senderismo"],
+    "lat": 10.5397, "lng": -83.5019
+  },
+  {
+    "id": "limon-004",
+    "nombre": "Manzanillo",
+    "region": "Huetar Atlántica",
+    "region_id": "limon",
+    "descripcion": "Pequeño pueblo pesquero al final de la ruta costera del Caribe Sur. El Refugio Gandoca-Manzanillo alberga delfines, manatíes y los arrecifes mejor conservados del país.",
+    "imagen_portada": "assets/img/destinos/region-huetar-atlantica/manzanillo.jpg",
+    "actividades": ["Snorkel", "Buceo", "Senderismo", "Avistamiento de delfines"],
+    "lat": 9.6336, "lng": -82.6628
+  },
+  {
+    "id": "central-sur-001",
+    "nombre": "Valle de Orosi",
+    "region": "Central Sur",
+    "region_id": "central-sur",
+    "descripcion": "Considerado uno de los valles más bellos de Costa Rica. Rodeado de cafetales, alberga la iglesia colonial más antigua del país en uso continuo y el Parque Nacional Tapantí.",
+    "imagen_portada": "assets/img/destinos/region-central/orosi.jpg",
+    "actividades": ["Turismo de café", "Senderismo", "Ciclismo", "Aguas termales"],
+    "lat": 9.7906, "lng": -83.8465
+  },
+  {
+    "id": "central-sur-002",
+    "nombre": "Volcán Irazú",
+    "region": "Central Sur",
+    "region_id": "central-sur",
+    "descripcion": "El volcán activo más alto de Costa Rica con 3432 msnm. Desde su cráter con laguna verde esmeralda se puede ver simultáneamente el Pacífico y el Atlántico en días despejados.",
+    "imagen_portada": "assets/img/destinos/region-central/irazu.jpg",
+    "actividades": ["Observación del cráter", "Senderismo", "Fotografía", "Avistamiento de aves"],
+    "lat": 9.9792, "lng": -83.8519
+  },
+  {
+    "id": "huetar-norte-001",
     "nombre": "Volcán Poás",
     "region": "Huetar Norte",
     "region_id": "huetar-norte",
     "descripcion": "Uno de los cráteres activos más grandes del mundo accesibles al público. Desde el mirador se observa su laguna cratérica de color turquesa azufrado rodeada de páramo.",
-    "imagen_portada": "assets/img/destinos/poas.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-16.jpg",
-      "assets/img/carrucel/foto-17.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": null,
+    "imagen_portada": "assets/img/destinos/region-huetar-norte/poas.jpg",
     "actividades": ["Senderismo", "Observación del cráter", "Fotografía", "Avistamiento de quetzales"],
-    "lat": 10.1996,
-    "lng": -84.2328
+    "lat": 10.1996, "lng": -84.2328
   },
   {
-    "id": "central-002",
-    "nombre": "Valle de Orosi",
-    "region": "Central Sur",
-    "region_id": "central-sur",
-    "descripcion": "Considerado uno de los valles más bellos de Costa Rica. Rodeado de cafetales, alberga la iglesia colonial más antigua del país y el Parque Nacional Tapantí.",
-    "imagen_portada": "assets/img/destinos/orosi.jpg",
-    "galeria": [
-      "assets/img/carrucel/foto-18.jpg",
-      "assets/img/carrucel/foto-19.jpg",
-      "assets/img/carrucel/foto-20.jpg"
-    ],
-    "audio": "assets/audio/musica-fondo.mp3",
-    "video": null,
-    "actividades": ["Turismo de café", "Senderismo", "Ciclismo", "Aguas termales"],
-    "lat": 9.7906,
-    "lng": -83.8465
+    "id": "huetar-norte-002",
+    "nombre": "La Fortuna y Volcán Arenal",
+    "region": "Huetar Norte",
+    "region_id": "huetar-norte",
+    "descripcion": "El imponente Volcán Arenal domina el horizonte sobre el pintoresco pueblo de La Fortuna. La zona ofrece aguas termales naturales, la Laguna de Arenal y aventuras sin fin.",
+    "imagen_portada": "assets/img/destinos/region-huetar-norte/arenal.jpg",
+    "actividades": ["Aguas termales", "Canopy", "Kayak", "Senderismo"],
+    "lat": 10.4693, "lng": -84.6435
   }
 ]
