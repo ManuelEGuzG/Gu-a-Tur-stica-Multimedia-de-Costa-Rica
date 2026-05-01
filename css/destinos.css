@@ -1,0 +1,515 @@
+/* ═══════════════════════════════════════════════════════════════
+   destinos.css — Sección destinos dentro del index
+   Guía Turística Multimedia de Costa Rica
+   IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   SECCIÓN
+══════════════════════════════════════════════════════════════ */
+.destinos-seccion {
+  background: #0d1f15;
+  width: 100%;
+}
+/* ── Header ───────────────────────────────────────────────────── */
+.destinos-seccion__header {
+  background: #0b1810;
+  padding: 2.5rem 2rem 0;
+}
+.destinos-hero__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1.25rem;
+}
+
+/* Eyebrow */
+.destinos-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.destinos-hero__eyebrow-linea {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: #96ac60;
+  opacity: 0.55;
+}
+
+.destinos-hero__eyebrow-texto {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: #96ac60;
+  text-transform: uppercase;
+}
+
+/* Título */
+.destinos-hero__titulo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.destinos-hero__titulo em {
+  font-family: 'Cormorant Infant', Georgia, serif;
+  font-style: italic;
+  color: #b7cd7f;
+}
+
+/* ── Filtros ──────────────────────────────────────────────────── */
+.destinos-filtros {
+  background: #0b1810;
+  border-bottom: none;
+  padding: 0 2rem;
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+}
+
+.destinos-filtros__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.8rem 0;
+  scrollbar-width: none;
+}
+
+.destinos-filtros__inner::-webkit-scrollbar { display: none; }
+
+.filtro-btn {
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.38rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(150,172,96,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filtro-btn:hover {
+  border-color: rgba(150,172,96,0.45);
+  color: rgba(255,255,255,0.85);
+  background: rgba(150,172,96,0.07);
+}
+
+.filtro-btn.activo {
+  background: #96ac60;
+  border-color: #96ac60;
+  color: #0a1910;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MAIN
+══════════════════════════════════════════════════════════════ */
+.destinos-main {
+  background: #0b1810;
+  padding: 2rem 2rem 5rem;
+}
+.destinos-main__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.destinos-contador {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.destinos-contador span {
+  color: #96ac60;
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GRID — 3 columnas
+══════════════════════════════════════════════════════════════ */
+.destinos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CARD
+══════════════════════════════════════════════════════════════ */
+.destino-card {
+  background: #0e2016;
+  border: 1px solid rgba(150,172,96,0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(16px);
+  animation: cardEntrada 0.45s ease forwards;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.destino-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  border-color: rgba(150,172,96,0.3);
+}
+
+/* ── Imagen ───────────────────────────────────────────────────── */
+.destino-card__img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #132318;
+  flex-shrink: 0;
+}
+
+.destino-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.destino-card:hover .destino-card__img {
+  transform: scale(1.06);
+}
+
+/* Placeholder cuando no hay imagen */
+.destino-card__img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0b1810 0%, #1a3520 100%);
+  z-index: 0;
+}
+
+.destino-card__img { position: relative; z-index: 1; }
+
+.destino-card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,25,16,0.75) 0%, rgba(10,25,16,0.1) 55%);
+  z-index: 2;
+}
+
+/* Badge */
+.destino-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 3;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.24rem 0.6rem;
+  border-radius: 20px;
+  background: rgba(10,25,16,0.82);
+  backdrop-filter: blur(6px);
+  color: #b7cd7f;
+  border: 1px solid rgba(183,205,127,0.25);
+}
+
+/* ── Cuerpo ───────────────────────────────────────────────────── */
+.destino-card__body {
+  padding: 1rem 1.1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.destino-card__nombre {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.destino-card__descripcion {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tags de actividades */
+.destino-card__actividades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.destino-card__tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(150,172,96,0.1);
+  border: 1px solid rgba(150,172,96,0.18);
+  color: #96ac60;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.destino-card__divisor {
+  height: 1px;
+  background: rgba(150,172,96,0.08);
+  margin: 0 1.1rem;
+}
+
+.destino-card__footer {
+  padding: 0.7rem 1.1rem 0.9rem;
+}
+
+.destino-card__ver-mas {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #96ac60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.destino-card:hover .destino-card__ver-mas {
+  gap: 0.65rem;
+  color: #b7cd7f;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ESTADO VACÍO
+══════════════════════════════════════════════════════════════ */
+.destinos-vacio {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: rgba(255,255,255,0.25);
+}
+
+.destinos-vacio.visible { display: flex; }
+
+.destinos-vacio__texto {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MODAL DE DETALLE
+══════════════════════════════════════════════════════════════ */
+.modal-destino {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-destino.abierto {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-destino__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4,12,7,0.88);
+  backdrop-filter: blur(6px);
+}
+
+.modal-destino__panel {
+  position: relative;
+  z-index: 1;
+  background: #0e2016;
+  border: 1px solid rgba(150,172,96,0.2);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150,172,96,0.2) transparent;
+}
+
+.modal-destino.abierto .modal-destino__panel {
+  transform: translateY(0) scale(1);
+}
+
+/* Cerrar */
+.modal-destino__cerrar {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(10,25,16,0.8);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-destino__cerrar:hover {
+  background: rgba(150,172,96,0.2);
+  color: #fff;
+}
+
+/* Imagen del modal */
+.modal-destino__img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  background: #132318;
+}
+
+.modal-destino__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-destino__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,25,16,0.82) 0%, transparent 50%);
+}
+
+.modal-destino__badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.7rem;
+  border-radius: 20px;
+  background: rgba(10,25,16,0.8);
+  backdrop-filter: blur(6px);
+  color: #b7cd7f;
+  border: 1px solid rgba(183,205,127,0.28);
+}
+
+/* Cuerpo del modal */
+.modal-destino__body {
+  padding: 1.5rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.modal-destino__nombre {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.modal-destino__descripcion {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.82;
+}
+
+.modal-destino__seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.modal-destino__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+
+.modal-destino__actividades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMACIÓN
+══════════════════════════════════════════════════════════════ */
+@keyframes cardEntrada {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .destinos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .destinos-grid { grid-template-columns: 1fr; }
+  .destinos-seccion__header { padding: 2rem 1.25rem 0; }
+  .destinos-main { padding: 1.5rem 1.25rem 4rem; }
+  .destinos-filtros { padding: 0 1.25rem; }
+  .modal-destino { padding: 1rem; }
+}

@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════
+   global.css — Estilos base y reset
+   Guía Turística Multimedia de Costa Rica
+   IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Reset total — sin orillas ni márgenes ────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Fondo oscuro mientras carga el video, evita flash blanco */
+  background-color: #0a1910;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0a1910;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Elementos base ───────────────────────────────────────────── */
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Utilidades ───────────────────────────────────────────────── */
+.oculto {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Footer global ────────────────────────────────────────────── */
+.site-footer {
+  background: #060f0a;
+  padding: 1.75rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(150, 172, 96, 0.08);
+}
+
+.site-footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.site-footer a {
+  color: #96ac60;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #b7cd7f;
+}
