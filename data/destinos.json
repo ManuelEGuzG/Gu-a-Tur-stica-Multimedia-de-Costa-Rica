@@ -104,10 +104,10 @@
   {
   "id": "puntarenas-005",
   "nombre": "Monteverde",
-  "region": "Pacífico Norte",
+  "region": "Pacífico Central",
   "region_id": "puntarenas",
   "descripcion": "Destino emblemático de bosque nuboso en Costa Rica, famoso por su biodiversidad y reservas biológicas como la Reserva Biológica Bosque Nuboso Monteverde. Hogar de especies únicas como el quetzal, ofrece una experiencia inmersiva entre neblina, puentes colgantes y exuberante vegetación.",
-  "imagen_portada": "assets/img/destinos/region-pacifico-norte/monteverde.jpeg",
+  "imagen_portada": "assets/img/destinos/region-pacifico-central/monteverde.jpeg",
   "actividades": ["Senderismo", "Canopy", "Puentes colgantes", "Observación de aves"],
   "lat": 10.3000,
   "lng": -84.8167
