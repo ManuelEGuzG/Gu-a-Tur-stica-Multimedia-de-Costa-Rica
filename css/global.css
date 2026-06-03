@@ -5,6 +5,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
+  /* ── Colores ──────────────────────────────────────────────────── */
   --oro:          #c9a84c;
   --oro-claro:    #e8c97a;
   --verde-logo:   #2d5a3d;
@@ -13,11 +14,37 @@
   --blanco-80:    rgba(255, 255, 255, 0.80);
   --blanco-50:    rgba(255, 255, 255, 0.50);
   --blanco-20:    rgba(255, 255, 255, 0.20);
+
+  /* ── Tipografías ──────────────────────────────────────────────── */
   --serif:        'Cormorant Garamond', Georgia, serif;
   --serif-italic: 'Cormorant Infant', Georgia, serif;
   --sans:         'Montserrat', sans-serif;
-  --navbar-alto:  72px;
+
+  /* ── Espaciado y layout ───────────────────────────────────────── */
+  --navbar-alto:     72px;
+  --contenedor-max:  1280px;
+  --padding-seccion: clamp(3rem, 8vw, 6rem);
+  --padding-lateral: clamp(1rem, 5vw, 2.5rem);
+
+  /* ── Tipografía fluida ────────────────────────────────────────── */
+  --texto-xs:  clamp(0.6rem,  1.2vw, 0.72rem);
+  --texto-sm:  clamp(0.75rem, 1.5vw, 0.875rem);
+  --texto-md:  clamp(0.875rem, 2vw, 1rem);
+  --texto-lg:  clamp(1rem,    2.5vw, 1.25rem);
+  --texto-xl:  clamp(1.25rem, 3vw,   1.75rem);
+  --texto-2xl: clamp(1.75rem, 5vw,   2.75rem);
+  --texto-3xl: clamp(2.5rem,  7vw,   4.5rem);
+
+  /* ── Breakpoints (para uso en JS si se requiere) ─────────────── */
+  --bp-sm:  480px;
+  --bp-md:  600px;
+  --bp-lg:  768px;
+  --bp-xl:  960px;
+  --bp-2xl: 1280px;
+
+  /* ── Animaciones ──────────────────────────────────────────────── */
   --ease-salida:  cubic-bezier(0.22, 1, 0.36, 1);
+  --transicion:   0.25s ease;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,4 +97,104 @@ ul, ol { list-style: none; }
 .datos-seccion,
 .destinos-seccion {
   border-top: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   UTILIDADES RESPONSIVAS
+   Clases helper de uso general en todo el proyecto
+   ════════════════════════════════════════════════════════════════ */
+
+/* Contenedor centrado con ancho máximo y padding lateral fluido */
+.contenedor {
+  width: 100%;
+  max-width: var(--contenedor-max);
+  margin-inline: auto;
+  padding-inline: var(--padding-lateral);
+}
+
+/* Ocultar / mostrar por breakpoint */
+.solo-movil   { display: none; }
+.solo-tablet  { display: none; }
+.solo-desktop { display: block; }
+
+/* ════════════════════════════════════════════════════════════════
+   MEDIA QUERIES GLOBALES
+   Orden: mobile-first → se extiende hacia pantallas más grandes
+   Breakpoints del proyecto:
+     --bp-sm  480px  → móvil pequeño
+     --bp-md  600px  → móvil grande / phablet
+     --bp-lg  768px  → tablet vertical
+     --bp-xl  960px  → tablet horizontal / laptop pequeño
+     --bp-2xl 1280px → desktop
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Móvil pequeño (≤ 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --navbar-alto:     60px;
+    --padding-lateral: 1rem;
+  }
+
+  .solo-movil   { display: block; }
+  .solo-desktop { display: none;  }
+
+  /* Footer más compacto */
+  .site-footer {
+    padding: 1.25rem 1rem;
+  }
+  .site-footer p {
+    font-size: 0.68rem;
+  }
+}
+
+/* ── Móvil grande / phablet (≤ 600px) ──────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    --padding-lateral: 1.1rem;
+  }
+}
+
+/* ── Tablet vertical (≤ 768px) ─────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --navbar-alto:     64px;
+    --padding-lateral: 1.5rem;
+  }
+
+  .solo-tablet  { display: block; }
+  .solo-desktop { display: none;  }
+}
+
+/* ── Tablet horizontal (≤ 960px) ───────────────────────────── */
+@media (max-width: 960px) {
+  :root {
+    --padding-lateral: 1.75rem;
+  }
+}
+
+/* ── Desktop completo (≥ 1280px) ───────────────────────────── */
+@media (min-width: 1280px) {
+  :root {
+    --padding-lateral: 3rem;
+  }
+}
+
+/* ── Preferencia de movimiento reducido (accesibilidad) ─────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior:      auto   !important;
+  }
+}
+
+/* ── Modo de alto contraste ─────────────────────────────────── */
+@media (forced-colors: active) {
+  :root {
+    --oro:       ButtonText;
+    --oro-claro: ButtonText;
+  }
 }

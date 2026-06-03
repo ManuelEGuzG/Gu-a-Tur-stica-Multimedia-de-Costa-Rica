@@ -1,13 +1,23 @@
-﻿/* ═══════════════════════════════════════════════════════════════
-   app-header.js — Custom Element <app-header>
-   Barra de navegación principal con logo, botón de audio,
-   botón de mapa y selector de idioma.
-   Guía Turística Multimedia de Costa Rica
-   IF7102 Multimedios | I Ciclo 2026 | UCR Sede Guanacaste
-   ═══════════════════════════════════════════════════════════════ */
+﻿/**
+ * <app-header> — Barra de navegación principal con menú de regiones
+ * Emite CustomEvent('region-selected') al hacer clic en una región
+ * Emite CustomEvent('audio-toggle') al hacer clic en el botón de audio
+ * Atributo observado: active-region — resalta la región activa en el menú
+ *
+ * Layout responsivo:
+ *  > 900px — regiones inline dentro del navbar (una sola barra)
+ * ≤ 900px — regiones en barra secundaria horizontal scrollable bajo el navbar
+ */
+
+const REGIONES = [
+  { id: 'guanacaste',   label: 'Pacífico Norte'   },
+  { id: 'puntarenas',   label: 'Pacífico Central' },
+  { id: 'limon',        label: 'Caribe'           },
+  { id: 'central-sur',  label: 'Central Sur'      },
+  { id: 'huetar-norte', label: 'Huetar Norte'     },
+];
 
 class AppHeader extends HTMLElement {
-
   static get observedAttributes() {
     return ['active-region'];
   }
@@ -15,35 +25,52 @@ class AppHeader extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this._silenciado = false;
+    this._scrollHandler = this._onScroll.bind(this);
   }
 
   connectedCallback() {
-    this.render();
-    this._setupEventos();
-    this._setupScroll();
+    this._render();
+    window.addEventListener('scroll', this._scrollHandler, { passive: true });
+    this._onScroll();
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('scroll', this._scrollHandler);
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    if (name === 'active-region') {
-      // Resaltar la región activa si se implementa menú de regiones
+    if (name === 'active-region' && oldVal !== newVal) {
+      this._actualizarRegionActiva(newVal);
     }
   }
 
-  /* ── Renderizar la navbar ──────────────────────────────────── */
-  render() {
+  _onScroll() {
+    const nav = this.shadowRoot.querySelector('.navbar');
+    if (!nav) { return; }
+    nav.classList.toggle('con-fondo', window.scrollY > 60);
+  }
+
+  _render() {
+    const regionesHTML = REGIONES.map(r => `
+      <li>
+        <button class="region-btn" data-id="${r.id}" aria-label="Ver destinos de ${r.label}">
+          ${r.label}
+        </button>
+      </li>
+    `).join('');
+
     this.shadowRoot.innerHTML = `
       <style>
-        :host {
-          display: block;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 100;
-        }
+        /* ── Host ─────────────────────────────────────────────── */
+        :host { display: block; }
 
-        nav {
+        /* ════════════════════════════════════════════════════════
+           NAVBAR PRINCIPAL (siempre visible en todos los tamaños)
+           ════════════════════════════════════════════════════════ */
+        .navbar {
+          position: fixed;
+          top: 0; left: 0; right: 0;
+          z-index: 100;
           height: 72px;
           display: flex;
           align-items: center;
@@ -52,297 +79,324 @@ class AppHeader extends HTMLElement {
           background: transparent;
           transition: background 0.4s ease, backdrop-filter 0.4s ease;
         }
-
-        nav.con-fondo {
-          background: rgba(8, 20, 12, 0.85);
+        .navbar.con-fondo {
+          background: rgba(8, 20, 12, 0.88);
           backdrop-filter: blur(14px);
           -webkit-backdrop-filter: blur(14px);
         }
 
-        /* ── Logo ─────────────────────────────────────── */
+        /* ── Logo ─────────────────────────────────────────────── */
         .logo {
           display: flex;
           align-items: center;
           gap: 0.7rem;
-          cursor: default;
+          text-decoration: none;
+          cursor: pointer;
+          flex-shrink: 0;
         }
-
         .logo-icono {
-          width: 46px;
-          height: 46px;
+          width: 46px; height: 46px;
           border-radius: 50%;
           background: #2d5a3d;
-          border: 1.5px solid rgba(255,255,255,0.22);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          overflow: hidden;
+          border: 1.5px solid rgba(255, 255, 255, 0.22);
+          display: flex; align-items: center; justify-content: center;
+          overflow: hidden; flex-shrink: 0;
         }
-
-        .logo-icono img {
-          width: 34px;
-          height: 34px;
-          object-fit: contain;
-        }
-
-        .logo-texto {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-        }
-
+        .logo-icono img { width: 34px; height: 34px; object-fit: contain; }
+        .logo-texto { display: flex; flex-direction: column; gap: 2px; }
         .logo-nombre {
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: #ffffff;
-          letter-spacing: 0.02em;
-          line-height: 1;
+          font-family: "Cormorant Garamond", Georgia, serif;
+          font-size: 1.1rem; font-weight: 600; color: #fff;
+          letter-spacing: 0.02em; line-height: 1;
         }
-
         .logo-subtitulo {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.58rem;
-          font-weight: 400;
-          letter-spacing: 0.2em;
-          color: #c9a84c;
-          line-height: 1;
+          font-family: "Montserrat", sans-serif;
+          font-size: 0.58rem; font-weight: 400;
+          letter-spacing: 0.2em; color: var(--oro, #c9a84c); line-height: 1;
         }
 
-        /* ── Acciones ─────────────────────────────────── */
-        .acciones {
+        /* ── Acciones (lado derecho del navbar) ───────────────── */
+        .acciones { display: flex; align-items: center; gap: 1.4rem; }
+
+        /* ── Regiones inline (solo desktop > 900px) ───────────── */
+        .regiones {
           display: flex;
           align-items: center;
-          gap: 1.6rem;
+          gap: 2px;
+          list-style: none;
+          padding: 0; margin: 0;
         }
 
-        /* ── Botón audio ──────────────────────────────── */
-        .btn-audio {
-          width: 34px;
-          height: 34px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.15);
-          color: rgba(255,255,255,0.8);
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background 0.25s, color 0.25s, border-color 0.25s;
-          flex-shrink: 0;
-        }
-
-        .btn-audio:hover {
-          background: rgba(255,255,255,0.15);
-          color: #fff;
-          border-color: rgba(255,255,255,0.3);
-        }
-
-        .btn-audio.silenciado {
-          background: rgba(192,57,43,0.15);
-          border-color: rgba(192,57,43,0.35);
-          color: rgba(255,120,100,0.85);
-        }
-
-        .btn-audio svg { display: block; }
-        .icono-off { display: none; }
-
-        /* ── Botón mapa ───────────────────────────────── */
-        .btn-mapa {
-          display: flex;
-          align-items: center;
-          gap: 0.45rem;
+        /* ── Botón de región (compartido: inline + barra móvil) ── */
+        .region-btn {
           background: none;
           border: none;
-          padding: 0;
-          color: rgba(255,255,255,0.8);
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.68rem;
-          font-weight: 500;
-          letter-spacing: 0.15em;
+          border-bottom: 1.5px solid transparent;
+          padding: 5px 10px;
+          color: rgba(255, 255, 255, 0.60);
+          font-family: "Montserrat", sans-serif;
+          font-size: 0.60rem; font-weight: 500;
+          letter-spacing: 0.12em; text-transform: uppercase;
           cursor: pointer;
-          transition: color 0.25s;
+          border-radius: 4px 4px 0 0;
+          transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+          white-space: nowrap;
+        }
+        .region-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.07); }
+        .region-btn.activa {
+          color: var(--oro, #c9a84c);
+          border-bottom-color: var(--oro, #c9a84c);
+          background: rgba(201, 168, 76, 0.09);
         }
 
+        /* ── Divisor vertical ─────────────────────────────────── */
+        .divisor-v {
+          width: 1px; height: 18px;
+          background: rgba(255, 255, 255, 0.14);
+          flex-shrink: 0;
+        }
+
+        /* ── Botón mapa ───────────────────────────────────────── */
+        .btn-mapa {
+          display: flex; align-items: center; gap: 0.45rem;
+          color: rgba(255, 255, 255, 0.75);
+          font-family: "Montserrat", sans-serif;
+          font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+          cursor: pointer; transition: color 0.25s ease;
+          border: none; background: none; padding: 0;
+          white-space: nowrap;
+        }
         .btn-mapa:hover { color: #fff; }
 
-        .btn-mapa svg {
-          opacity: 0.65;
-          transition: opacity 0.25s;
-        }
-
-        .btn-mapa:hover svg { opacity: 1; }
-
-        /* ── Idioma ───────────────────────────────────── */
-        .idioma {
-          display: flex;
-          border: 1px solid rgba(255,255,255,0.2);
-          border-radius: 2px;
-          overflow: hidden;
-        }
-
-        .idioma-btn {
-          background: none;
-          border: none;
-          padding: 0.32rem 0.6rem;
-          color: rgba(255,255,255,0.5);
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.68rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
+        /* ── Botón audio ──────────────────────────────────────── */
+        .btn-audio {
+          display: flex; align-items: center; justify-content: center;
+          width: 34px; height: 34px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          color: rgba(255, 255, 255, 0.78);
           cursor: pointer;
-          transition: background 0.2s, color 0.2s;
+          transition: background 0.25s ease, color 0.25s ease;
+          flex-shrink: 0;
+        }
+        .btn-audio:hover  { background: rgba(255, 255, 255, 0.14); color: #fff; }
+        .btn-audio.silenciado { color: rgba(255, 255, 255, 0.32); }
+
+        /* ── Selector de idioma ───────────────────────────────── */
+        .idioma { display: flex; gap: 2px; }
+        .idioma-btn {
+          background: none; border: none; padding: 3px 8px;
+          color: rgba(255, 255, 255, 0.38);
+          font-family: "Montserrat", sans-serif;
+          font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em;
+          cursor: pointer; border-radius: 4px;
+          transition: color 0.2s ease, background 0.2s ease;
+        }
+        .idioma-btn.activo { color: #fff; background: rgba(255, 255, 255, 0.08); }
+        .idioma-btn:hover  { color: rgba(255, 255, 255, 0.78); }
+
+        /* ════════════════════════════════════════════════════════
+           BARRA DE REGIONES SECUNDARIA (solo móvil / tablet ≤ 900px)
+           Fija justo debajo del navbar, scroll horizontal
+           ════════════════════════════════════════════════════════ */
+        .barra-regiones {
+          display: none; /* oculta en desktop, se activa con media query */
+          position: fixed;
+          top: 72px; left: 0; right: 0;
+          z-index: 99;
+          background: rgba(8, 20, 12, 0.92);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+          overflow-x: auto;
+          overflow-y: hidden;
+          scrollbar-width: none; /* Firefox: oculta scrollbar */
+          -ms-overflow-style: none; /* IE/Edge */
+        }
+        .barra-regiones::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+        .barra-regiones__lista {
+          display: flex;
+          align-items: stretch;
+          gap: 0;
+          list-style: none;
+          padding: 0 1rem;
+          margin: 0;
+          width: max-content; /* permite scroll si el contenido supera el ancho */
         }
 
-        .idioma-btn.activo {
-          background: #c9a84c;
-          color: #0a1910;
+        /* Botón de región dentro de la barra móvil */
+        .barra-regiones__lista .region-btn {
+          height: 42px;
+          border-radius: 0;
+          border-bottom: 2px solid transparent;
+          padding: 0 14px;
+          font-size: 0.62rem;
+          letter-spacing: 0.10em;
+        }
+        .barra-regiones__lista .region-btn.activa {
+          border-bottom-color: var(--oro, #c9a84c);
         }
 
-        .idioma-btn:not(.activo):hover {
-          background: rgba(255,255,255,0.15);
-          color: #fff;
+        /* ════════════════════════════════════════════════════════
+           RESPONSIVE
+           ════════════════════════════════════════════════════════ */
+
+        /* Tablet horizontal y abajo (≤ 900px):
+           - Oculta las regiones inline del navbar
+           - Muestra la barra de regiones secundaria */
+        @media (max-width: 900px) {
+          .regiones   { display: none; }
+          .divisor-v  { display: none; }
+          .barra-regiones { display: block; }
         }
 
-        /* ── Responsivo ───────────────────────────────── */
+        /* Tablet vertical (≤ 768px):
+           - Barra un poco más compacta
+           - Navbar ajusta padding */
         @media (max-width: 768px) {
-          nav { padding: 0 1.25rem; }
+          .navbar { padding: 0 1.5rem; }
+          .barra-regiones__lista { padding: 0 0.75rem; }
+        }
+
+        /* Móvil (≤ 640px):
+           - Oculta botón de mapa para ganar espacio
+           - Navbar aún más compacto */
+        @media (max-width: 640px) {
+          .navbar   { padding: 0 1rem; height: 60px; }
           .btn-mapa { display: none; }
+          .barra-regiones { top: 60px; }
+          .logo-nombre    { font-size: 0.95rem; }
+          .logo-subtitulo { display: none; }
+        }
+
+        /* Móvil pequeño (≤ 480px):
+           - Logo aún más compacto */
+        @media (max-width: 480px) {
+          .logo-icono { width: 38px; height: 38px; }
+          .logo-icono img { width: 28px; height: 28px; }
+          .idioma     { display: none; }
         }
       </style>
 
-      <nav id="navbar">
-        <div class="logo">
+      <!-- ── Navbar principal ─────────────────────────────────── -->
+      <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <a class="logo" href="index.html" aria-label="Inicio - Guía Turística Costa Rica">
           <div class="logo-icono">
-            <img src="assets/img/logo-turismo.png" alt="Logo Guía Turística Costa Rica" />
+            <img src="assets/img/logo-turismo.png" alt="" aria-hidden="true" width="34" height="34" />
           </div>
           <div class="logo-texto">
             <span class="logo-nombre">Costa Rica</span>
             <span class="logo-subtitulo">GUÍA TURÍSTICA</span>
           </div>
-        </div>
+        </a>
 
         <div class="acciones">
+          <!-- Regiones inline (solo > 900px) -->
+          <nav aria-label="Regiones turísticas">
+            <ul class="regiones">${regionesHTML}</ul>
+          </nav>
 
-          <!-- Botón silenciar música -->
-          <button class="btn-audio" id="btnAudio" title="Música de fondo" aria-label="Silenciar música de fondo">
-            <svg class="icono-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <div class="divisor-v" aria-hidden="true"></div>
+
+          <button class="btn-mapa" id="btnMapa" aria-label="Ir al mapa interactivo">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+              <line x1="8" y1="2" x2="8" y2="18"/>
+              <line x1="16" y1="6" x2="16" y2="22"/>
+            </svg>
+            MAPA
+          </button>
+
+          <button class="btn-audio" id="btnAudio" aria-label="Silenciar música de fondo" title="Música de fondo">
+            <svg class="icono-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
               <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
             </svg>
-            <svg class="icono-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <svg class="icono-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display:none">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
               <line x1="23" y1="9" x2="17" y2="15"/>
               <line x1="17" y1="9" x2="23" y2="15"/>
             </svg>
           </button>
 
-          <!-- Botón explorar mapa -->
-          <button class="btn-mapa" id="btnMapa" aria-label="Explorar mapa interactivo">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
-              <line x1="8" y1="2" x2="8" y2="18"/>
-              <line x1="16" y1="6" x2="16" y2="22"/>
-            </svg>
-            EXPLORAR MAPA
-          </button>
-
-          <!-- Selector de idioma -->
           <div class="idioma" role="group" aria-label="Seleccionar idioma">
             <button class="idioma-btn activo" data-lang="es" aria-pressed="true">ES</button>
-            <button class="idioma-btn" data-lang="en" aria-pressed="false">EN</button>
+            <button class="idioma-btn"        data-lang="en" aria-pressed="false">EN</button>
           </div>
-
         </div>
       </nav>
+
+      <!-- ── Barra de regiones secundaria (≤ 900px) ─────────────
+           Scroll horizontal, sin scrollbar visible
+           ──────────────────────────────────────────────────────── -->
+      <div class="barra-regiones" role="navigation" aria-label="Regiones turísticas">
+        <ul class="barra-regiones__lista">${regionesHTML}</ul>
+      </div>
     `;
+
+    this._bindEvents();
   }
 
-  /* ── Configurar eventos ──────────────────────────────────── */
-  _setupEventos() {
-    const navbar    = this.shadowRoot.getElementById('navbar');
-    const btnAudio  = this.shadowRoot.getElementById('btnAudio');
-    const btnMapa   = this.shadowRoot.getElementById('btnMapa');
-    const idiomasBtns = this.shadowRoot.querySelectorAll('.idioma-btn');
+  _bindEvents() {
+    const shadow = this.shadowRoot;
 
-    // Botón mapa → scroll a la sección
-    btnMapa?.addEventListener('click', () => {
-      document.getElementById('mapa-seccion')?.scrollIntoView({ behavior: 'smooth' });
-      this.dispatchEvent(new CustomEvent('mapa-click', { bubbles: true, composed: true }));
+    /* Todos los botones de región (inline + barra móvil) */
+    shadow.querySelectorAll('.region-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const regionId = btn.dataset.id;
+        this.setAttribute('active-region', regionId);
+        this.dispatchEvent(new CustomEvent('region-selected', {
+          bubbles: true, composed: true, detail: { regionId },
+        }));
+      });
     });
 
-    // Botón audio → silenciar/activar
+    /* Botón mapa → scroll suave a la sección del mapa */
+    shadow.getElementById('btnMapa')?.addEventListener('click', () => {
+      document.getElementById('mapa-seccion')?.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* Botón audio → emite evento para que la página controle el <audio> */
+    const btnAudio = shadow.getElementById('btnAudio');
+    const iconoOn  = shadow.querySelector('.icono-on');
+    const iconoOff = shadow.querySelector('.icono-off');
+
     btnAudio?.addEventListener('click', (e) => {
       e.stopPropagation();
-      this._silenciado = !this._silenciado;
-      this._actualizarBtnAudio();
-
-      // Comunicar al audio externo
-      const audio = document.getElementById('musicaFondo');
-      if (audio) {
-        if (this._silenciado) audio.pause();
-        else audio.play().catch(() => {});
-      }
-
+      const silenciado = btnAudio.classList.toggle('silenciado');
+      if (iconoOn)  { iconoOn.style.display  = silenciado ? 'none'  : 'block'; }
+      if (iconoOff) { iconoOff.style.display = silenciado ? 'block' : 'none';  }
+      btnAudio.setAttribute(
+        'aria-label',
+        silenciado ? 'Activar música de fondo' : 'Silenciar música de fondo'
+      );
       this.dispatchEvent(new CustomEvent('audio-toggle', {
-        detail: { silenciado: this._silenciado },
-        bubbles: true,
-        composed: true
+        bubbles: true, composed: true, detail: { silenciado },
       }));
     });
 
-    // Selector de idioma
+    /* Selector de idioma */
+    const idiomasBtns = shadow.querySelectorAll('.idioma-btn');
     idiomasBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        idiomasBtns.forEach(b => { b.classList.remove('activo'); b.setAttribute('aria-pressed','false'); });
+        idiomasBtns.forEach(b => {
+          b.classList.remove('activo');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('activo');
-        btn.setAttribute('aria-pressed','true');
-        this.dispatchEvent(new CustomEvent('idioma-change', {
-          detail: { lang: btn.dataset.lang },
-          bubbles: true,
-          composed: true
-        }));
+        btn.setAttribute('aria-pressed', 'true');
       });
     });
   }
 
-  /* ── Scroll → fondo de navbar ────────────────────────────── */
-  _setupScroll() {
-    const navbar = this.shadowRoot.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) navbar.classList.add('con-fondo');
-      else navbar.classList.remove('con-fondo');
-    }, { passive: true });
-  }
-
-  /* ── Actualizar ícono del botón de audio ─────────────────── */
-  _actualizarBtnAudio() {
-    const btn     = this.shadowRoot.getElementById('btnAudio');
-    const iconOn  = this.shadowRoot.querySelector('.icono-on');
-    const iconOff = this.shadowRoot.querySelector('.icono-off');
-    if (!btn) return;
-
-    if (this._silenciado) {
-      iconOn.style.display  = 'none';
-      iconOff.style.display = 'block';
-      btn.classList.add('silenciado');
-      btn.setAttribute('aria-label', 'Activar música de fondo');
-      btn.title = 'Activar música';
-    } else {
-      iconOn.style.display  = 'block';
-      iconOff.style.display = 'none';
-      btn.classList.remove('silenciado');
-      btn.setAttribute('aria-label', 'Silenciar música de fondo');
-      btn.title = 'Silenciar música';
-    }
-  }
-
-  /* ── Método público para sincronizar estado audio ────────── */
-  setSilenciado(val) {
-    this._silenciado = val;
-    this._actualizarBtnAudio();
+  _actualizarRegionActiva(regionId) {
+    /* Actualiza botones tanto en el navbar inline como en la barra móvil */
+    this.shadowRoot.querySelectorAll('.region-btn').forEach(btn => {
+      btn.classList.toggle('activa', btn.dataset.id === regionId);
+    });
   }
 }
 
