@@ -26,7 +26,7 @@
     "region_id": "chorotega",
     "descripcion": "Una de las playas más hermosas de Costa Rica, famosa por su arena formada por millones de conchas de mar trituradas. Sus aguas cristalinas son ideales para el snorkel y el buceo.",
     "imagen_portada": "assets/img/destinos/region-pacifico-norte/conchal.jpg",
-    "actividades": ["Snorkel", "Natación", "Buceo", "Kayak"],
+    "actividades": ["Snorkel", "Natación", "Buceo", "Kayak","Camping"],
     "lat": 10.3894, "lng": -85.8017
   },
   {
