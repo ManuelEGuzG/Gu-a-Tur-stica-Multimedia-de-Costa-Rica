@@ -265,7 +265,7 @@
     "region": "Brunca",
     "region_id": "brunca",
     "descripcion": "Pintoresco pueblo de montaña con una fuerte influencia histórica de inmigrantes italianos. Ofrece un clima fresco, excelente gastronomía, plantaciones de café de altura y cercanía al Jardín Botánico Wilson.",
-    "imagen_portada": "assets/img/destinos/region-brunca/san-vito.jpg",
+    "imagen_portada": "assets/img/destinos/region-brunca/san-vito.png",
     "actividades": ["Turismo de café", "Observación de aves", "Senderismo botánico", "Gastronomía"],
     "lat": 8.8214, "lng": -82.9723
   }

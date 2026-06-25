@@ -115,3 +115,15 @@ Rica, A. T. C. (2023, 12 agosto). 6 consejos de seguridad para los turistas que 
 Azteca Tours - Agencia de Viajes a México y Costa Rica. (2025, 28 mayo). Río Celeste - Azteca Tours. Azteca Tours. https://aztecatours.com/tour/rio-celeste/
 
 Bajos del Toro – Mae happy. (s. f.). https://maehappy.com/destination/bajos-del-toro-amarillo/ 
+
+Brunca
+
+Lo que hay que saber para descubrir Corcovado. (s. f.). Visit Costa Rica. https://es.visitcostarica.com/blog/what-you-need-know-discover-corcovado
+
+Ramírez, P. (2025, 16 junio). Reserva Biológica Isla del Caño. Ballena Infocenter & Tours. https://www.ballenainfocenter.com/general/reserva-biologica-isla-del-cano/
+
+Vamos A Turistear. (2024, 5 febrero). Los secretos del Sitio Arqueológico Finca 6 - Vamos a Turistear. https://vamosaturistear.com/actividades/los-secretos-del-sitio-arqueologico-finca-6/
+
+Montilla, J. (2024, 28 enero). Explorando las ofertas del almacén gratuito de Golfito: una experiencia de compras y descanso inigualable. Casa Roland Golfito. https://casarolandgolfito.com/es/explorando-las-ofertas-del-almacen-gratuito-de-golfito-una-experiencia-de-compras-y-descanso-inigualable/ 
+
+Municipalidad de Coto Brus - Datos del cantón. (s. f.). https://www.municotobrus.go.cr/articulo/16/datos-del-canton
