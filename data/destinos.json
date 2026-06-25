@@ -218,5 +218,65 @@
     "imagen_portada": "assets/img/destinos/region-huetar-norte/bajos-del-toro.jpg",
     "actividades": ["Senderismo", "Visita a cataratas", "Fotografía", "Observación de paisajes"],
     "lat": 10.2236, "lng": -84.2950
+  },
+  {
+    "id": "brunca-001",
+    "nombre": "Parque Nacional Corcovado",
+    "region": "Brunca",
+    "region_id": "brunca",
+    "descripcion": "Considerado por National Geographic como el lugar biológicamente más intenso del planeta. Protege la mayor extensión de bosque tropical húmedo del Pacífico americano y es hogar de jaguares, dantas y guacamayas rojas.",
+    "imagen_portada": "assets/img/destinos/region-brunca/corcovado.jpg",
+    "actividades": ["Senderismo de aventura", "Observación de fauna", "Fotografía de naturaleza", "Recorridos en bote"],
+    "lat": 8.5379, "lng": -83.5641
+  },
+  {
+    "id": "brunca-002",
+    "nombre": "Parque Nacional Marino Ballena",
+    "region": "Brunca",
+    "region_id": "brunca",
+    "descripcion": "Famoso por su icónica formación natural de arena y piedra en forma de 'Cola de Ballena' visible en marea baja. Es un santuario crítico para la migración y apareamiento de las ballenas jorobadas.",
+    "imagen_portada": "assets/img/destinos/region-brunca/marino-ballena.jpg",
+    "actividades": ["Avistamiento de ballenas", "Snorkel", "Natación", "Paddleboarding"],
+    "lat": 9.1462, "lng": -83.7432
+  },
+  {
+    "id": "brunca-003",
+    "nombre": "Isla del Caño",
+    "region": "Brunca",
+    "region_id": "brunca",
+    "descripcion": "Reserva biológica marina de primer nivel. Sus aguas cristalinas albergan espectaculares arrecifes de coral con una visibilidad increíble, ideales para nadar junto a mantarrayas, tiburones de arrecife y tortugas marinas.",
+    "imagen_portada": "assets/img/destinos/region-brunca/isla-cano.jpg",
+    "actividades": ["Buceo", "Snorkel", "Observación de cetáceos", "Fotografía submarina"],
+    "lat": 8.7061, "lng": -83.8794
+  },
+  {
+    "id": "brunca-004",
+    "nombre": "Sitio Arqueológico Finca 6",
+    "region": "Brunca",
+    "region_id": "brunca",
+    "descripcion": "Uno de los pocos sitios arqueológicos con esferas de piedra precolombinas halladas en su contexto original. Declarado Patrimonio de la Humanidad por la UNESCO, revela el misterio y la maestría de la antigua cultura del Diquís.",
+    "imagen_portada": "assets/img/destinos/region-brunca/finca-6.jpg",
+    "actividades": ["Turismo arqueológico", "Historia", "Visita al museo", "Cultura"],
+    "lat": 8.9083, "lng": -83.5294
+  },
+  {
+    "id": "brunca-005",
+    "nombre": "Golfito y Golfo Dulce",
+    "region": "Brunca",
+    "region_id": "brunca",
+    "descripcion": "Un antiguo puerto bananero rodeado por un refugio de vida silvestre. Sus aguas tranquilas, estilo fiordo tropical, son perfectas para la navegación y el avistamiento frecuente de grandes grupos de delfines.",
+    "imagen_portada": "assets/img/destinos/region-brunca/golfito.jpg",
+    "actividades": ["Pesca deportiva", "Avistamiento de delfines", "Kayak", "Compras en Depósito Libre"],
+    "lat": 8.6358, "lng": -83.1611
+  },
+  {
+    "id": "brunca-006",
+    "nombre": "San Vito de Coto Brus",
+    "region": "Brunca",
+    "region_id": "brunca",
+    "descripcion": "Pintoresco pueblo de montaña con una fuerte influencia histórica de inmigrantes italianos. Ofrece un clima fresco, excelente gastronomía, plantaciones de café de altura y cercanía al Jardín Botánico Wilson.",
+    "imagen_portada": "assets/img/destinos/region-brunca/san-vito.jpg",
+    "actividades": ["Turismo de café", "Observación de aves", "Senderismo botánico", "Gastronomía"],
+    "lat": 8.8214, "lng": -82.9723
   }
 ]
