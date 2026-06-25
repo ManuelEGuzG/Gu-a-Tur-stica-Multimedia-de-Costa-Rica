@@ -4,7 +4,7 @@
     "nombre": "Tamarindo",
     "region": "Chorotega",
     "region_id": "chorotega",
-    "descripcion": "Destino de fama mundial por sus olas perfectas para el surf y sus espectaculares puestas de sol. El Parque Nacional Marino Las Baulas protege las playas de anidación de tortugas baulas.",
+    "descripcion": "Destino de fama mundial por sus olas perfectas para el surf y sus puestas de sol espectaculares. El Parque Nacional Marino Las Baulas protege las playas de anidación de tortugas baulas.",
     "imagen_portada": "assets/img/destinos/region-pacifico-norte/tamarindo.jpg",
     "actividades": ["Surf", "Avistamiento de tortugas", "Pesca deportiva", "Snorkel"],
     "lat": 10.2993, "lng": -85.8367
@@ -26,7 +26,7 @@
     "region_id": "chorotega",
     "descripcion": "Una de las playas más hermosas de Costa Rica, famosa por su arena formada por millones de conchas de mar trituradas. Sus aguas cristalinas son ideales para el snorkel y el buceo.",
     "imagen_portada": "assets/img/destinos/region-pacifico-norte/conchal.jpg",
-    "actividades": ["Snorkel", "Natación", "Buceo", "Kayak","Camping"],
+    "actividades": ["Snorkel", "Natación", "Buceo", "Kayak", "Camping"],
     "lat": 10.3894, "lng": -85.8017
   },
   {
@@ -68,16 +68,6 @@
     "imagen_portada": "assets/img/destinos/region-pacifico-central/manuel-antonio.jpg",
     "actividades": ["Senderismo", "Natación", "Observación de fauna", "Kayak"],
     "lat": 9.3935, "lng": -84.1414
-  },
-  {
-    "id": "puntarenas-002",
-    "nombre": "Uvita y Marino Ballena",
-    "region": "Pacífico Central",
-    "region_id": "pacifico_central",
-    "descripcion": "Famoso por la Cola de Ballena, una formación natural de arena visible en marea baja. Principal sitio de avistamiento de ballenas jorobadas en Costa Rica.",
-    "imagen_portada": "assets/img/destinos/region-pacifico-central/uvita.jpg",
-    "actividades": ["Avistamiento de ballenas", "Snorkel", "Kayak", "Senderismo"],
-    "lat": 9.1574, "lng": -83.7319
   },
   {
     "id": "puntarenas-003",
