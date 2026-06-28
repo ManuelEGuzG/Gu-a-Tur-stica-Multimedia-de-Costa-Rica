@@ -112,7 +112,7 @@ Guía-Turística-Multimedia-de-Costa-Rica/
 
 ---
 
-## Tecnologías utilizadas
+## TECNOLOGÍAS UTILIZADAS
 
 ### Núcleo
 
