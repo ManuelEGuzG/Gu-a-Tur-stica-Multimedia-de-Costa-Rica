@@ -332,7 +332,7 @@ class BienvenidaModal extends HTMLElement {
       </div>
     `;
 
-    /* ── Evento del botón ── */
+
     this.shadowRoot.getElementById('btnEntrar')
       .addEventListener('click', () => this._cerrar());
   }
@@ -352,7 +352,7 @@ class BienvenidaModal extends HTMLElement {
       });
     });
 
-    /* Bloquear scroll del body mientras está abierto */
+
     document.body.style.overflow = 'hidden';
   }
 
@@ -363,12 +363,12 @@ class BienvenidaModal extends HTMLElement {
     const overlay = this.shadowRoot.getElementById('overlay');
     overlay.classList.add('saliendo');
 
-    /* Eliminar el elemento tras la animación */
+
     overlay.addEventListener('transitionend', () => {
       document.body.style.overflow = '';
       this.remove();
 
-      /* Disparar evento para que el resto de la app lo sepa */
+
       document.dispatchEvent(new CustomEvent('bienvenida-cerrada', {
         bubbles: true
       }));
@@ -376,5 +376,5 @@ class BienvenidaModal extends HTMLElement {
   }
 }
 
-/* Registrar el Custom Element */
+
 customElements.define('bienvenida-modal', BienvenidaModal);
