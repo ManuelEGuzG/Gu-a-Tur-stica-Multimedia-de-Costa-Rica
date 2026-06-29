@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinos — Guía Turística Multimedia de Costa Rica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Infant:ital,wght@1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/portada.css" />   <!-- navbar reutilizada -->
+  <link rel="stylesheet" href="css/destinos.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       NAVBAR (reutiliza estilos de portada.css)
+  ════════════════════════════════════════ -->
+  <nav class="navbar con-fondo" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar__logo">
+      <div class="navbar__logo-icono">
+        <img src="assets/img/logo-turismo.png" alt="Logo Guía Turística Costa Rica" width="34" height="34" />
+      </div>
+      <div class="navbar__logo-texto">
+        <span class="navbar__logo-nombre">Costa Rica</span>
+        <span class="navbar__logo-subtitulo">GUÍA TURÍSTICA</span>
+      </div>
+    </div>
+    <div class="navbar__acciones">
+
+      <!-- Botón silenciar / activar música -->
+      <button class="navbar__btn-audio" id="btnAudio" aria-label="Silenciar música de fondo" title="Música de fondo">
+        <svg class="audio-icono audio-icono--on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        <svg class="audio-icono audio-icono--off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display:none">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <line x1="23" y1="9" x2="17" y2="15"/>
+          <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+      </button>
+
+      <a class="navbar__btn-mapa" href="index.html" aria-label="Volver al inicio">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        VOLVER AL INICIO
+      </a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <header class="destinos-hero">
+    <div class="destinos-hero__inner">
+      <div class="destinos-hero__eyebrow">
+        <span class="destinos-hero__eyebrow-linea"></span>
+        <span class="destinos-hero__eyebrow-texto">EXPLORÁ COSTA RICA</span>
+      </div>
+      <h1 class="destinos-hero__titulo">
+        Destinos<br>
+        <em id="heroRegionTexto">Pura Vida</em>
+      </h1>
+      <p class="destinos-hero__subtitulo">
+        Descubrí los rincones más extraordinarios del país —
+        volcanes, playas, selvas y cultura en un solo lugar.
+      </p>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       FILTROS POR REGIÓN
+  ════════════════════════════════════════ -->
+  <nav class="destinos-filtros" aria-label="Filtrar por región">
+    <div class="destinos-filtros__inner" id="destinosFiltros">
+      <!-- Generado dinámicamente desde JS -->
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       GRID DE DESTINOS
+  ════════════════════════════════════════ -->
+  <main class="destinos-main">
+    <div class="destinos-main__inner">
+
+      <p class="destinos-contador" id="destinosContador"></p>
+
+      <div class="destinos-grid" id="destinosGrid">
+        <!-- Cards generadas dinámicamente desde destinos.json -->
+      </div>
+
+      <!-- Estado vacío -->
+      <div class="destinos-vacio" id="destinosVacio" aria-live="polite">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <p class="destinos-vacio__texto">No hay destinos para esta región todavía.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="destinos-footer">
+    <p>
+      © 2026 <a href="index.html">Guía Turística Multimedia de Costa Rica</a>
+      — IF7102 Multimedios | UCR Sede Guanacaste
+    </p>
+  </footer>
+
+  <!-- Audio de fondo -->
+  <audio id="musicaFondo" src="assets/audio/musica-fondo.mp3" loop preload="auto"></audio>
+
+  <script src="js/destinos.js"></script>
+  <script src="js/audio.js"></script>
+
+</body>
+</html>
