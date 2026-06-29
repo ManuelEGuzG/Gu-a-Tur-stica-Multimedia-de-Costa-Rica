@@ -305,7 +305,7 @@ class BienvenidaModal extends HTMLElement {
             </div>
             <div class="stat-sep"></div>
             <div class="stat">
-              <span class="stat-numero">22</span>
+              <span class="stat-numero">27</span>
               <span class="stat-label">Destinos</span>
             </div>
             <div class="stat-sep"></div>
